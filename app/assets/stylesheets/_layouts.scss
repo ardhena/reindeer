@@ -4,7 +4,7 @@ body {
   font-size: 12pt;
   font-style: Arial;
   background-color: #eeeeee;
-  color: #111111;
+  color: #222222;
   a { text-decoration: none; }
 }
 
@@ -12,11 +12,17 @@ body {
   width: 100%;
   height: 30px;
   margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
   padding: 10px 0 10px 0;
-  background-color: #dddddd;
   .menu {
     width: 1000px;
     margin: 0 auto;
+    .title {
+      float: left;
+      color: darkblue;
+      margin: 5px;
+    }
     ul {
       list-style-type: none;
       text-align: right;
@@ -26,9 +32,39 @@ body {
       display: inline-block;
       margin: 5px;
     }
+    a {
+      display: block;
+      padding-bottom: 5px;
+      color: #111111;
+      &:hover {
+        border-bottom: 3px solid darkblue;
+        color: darkred;
+      }
+    }
   }
 }
 
-.content {}
+.content {
+  width: 1000px - 2*20px;
+  height: auto;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: rgba(#dddddd, 0.5);
+  border: 2px solid darkblue;
+  border-radius: 25px;
+  text-align: justify;
+  h1, h2, h3, h4, h5, h6 {
+    color: darkred;
+  }
+}
 
-.footer {}
+.footer {
+  width: 500px;
+  height: auto;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding: 10px;
+  color: #aaaaaa;
+  text-align: center;
+}
