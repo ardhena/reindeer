@@ -201,6 +201,16 @@ ActiveAdmin.setup do |config|
   #     end
   #   end
 
+  config.namespace :admin_panel do |admin|
+    admin.build_menu :default do |menu|
+    end
+
+    admin.build_menu :utility_navigation do |menu|
+      menu.add label: "View home page", url: '/'
+      admin.add_logout_button_to_menu menu
+    end
+  end
+
 
   # == Download Links
   #
