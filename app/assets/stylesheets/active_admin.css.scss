@@ -8,6 +8,21 @@
 // $sidebar-width: 242px;
 
 // Active Admin's got SASS!
+
+$body-background-color: #eeeeee;
+$primary-color: darkblue;
+$secondary-color: darkred;
+$text-color: #222222;
+$link-color: darkred;
+$section-header-text-color: $secondary-color;
+$current-menu-item-background: #222222;
+$hover-menu-item-background: #444444;
+$table-stripe-color: lighten($body-background-color, 4%);
+$table-selected-color: darken($body-background-color, 8%);
+$page-header-text-color: #dddddd;
+$secondary-gradient-start: #dddddd;
+$secondary-gradient-stop: darken(#dddddd, 10%);
+
 @import "active_admin/mixins";
 @import "active_admin/base";
 
@@ -15,3 +30,12 @@
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+
+body { 
+  font-size: 11pt;
+  font-family: Arial;
+}
+
+.section, .panel { background-color: #dddddd; }
+
+form fieldset.inputs { background-color: #dddddd; }
