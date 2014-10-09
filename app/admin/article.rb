@@ -4,7 +4,8 @@ ActiveAdmin.register Article do
 
   controller do
     def create
-      @article = Article.new(params[:id])
+      params[:article] = params.require(:article).permit(:title, :content)
+      @article = Article.new(params[:article])
       @article.admin = current_admin
       super
     end
