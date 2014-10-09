@@ -1,2 +1,5 @@
-%h2 Works!
-%p Norway, officially the Kingdom of Norway (Kongeriket Norge in Bokmål and Kongeriket Noreg in Nynorsk), is a Scandinavian unitary constitutional monarchy whose territory comprises the western portion of the Scandinavian Peninsula, Jan Mayen, the Arctic archipelago of Svalbard, and the sub-Antarctic Bouvet Island. Peter I Island is a dependent territory and thus not considered part of the Kingdom. Norway also lays claim to a section of Antarctica known as Queen Maud Land. Norway has a total area of 385,252 square kilometres (148,747 sq mi) and a population of 5,109,059 people (2014). The country shares a long eastern border with Sweden (1,619 km or 1,006 mi long). Norway is bordered by Finland and Russia to the north-east, and the Skagerrak Strait to the south, with Denmark on the other side. Norway has an extensive coastline, facing the North Atlantic Ocean and the Barents Sea.
+- @articles.each do |a|
+  .article
+    %h2= a.title
+    %span= a.created_at.to_formatted_s(:db)
+    %p= a.content
