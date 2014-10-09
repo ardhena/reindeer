@@ -2,6 +2,13 @@ ActiveAdmin.register Article do
 
   permit_params :title, :content
 
+  controller do
+    def create
+      @article = Article.new(params[:id])
+      @article.admin = current_admin
+      super
+    end
+  end
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
