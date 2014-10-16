@@ -1,0 +1,6 @@
+- @articles.each do |a|
+  .article
+    %h2= a.title
+    %span= a.created_at.to_formatted_s(:db)
+    %span= a.admin.email
+    %p= a.content
