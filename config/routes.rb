@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   root 'pages#home'
   resources :articles, only: [:index, :show]
   resources :news, only: [:index, :show]
+  get 'pages/about', as: 'about'
 end
