@@ -2,9 +2,10 @@ Norway
 ======  
   
 [Deploy](http://frozen-ocean-6252.herokuapp.com/)  
+Panel administracyjny: /admin_panel  
+Login: olgadraber@gmail.com  
+Hasło: 12345678  
   
-======
-
 O aplikacji
 -----------
 
