@@ -1,4 +1,8 @@
 Norway
+======  
+  
+[Deploy](http://frozen-ocean-6252.herokuapp.com/)  
+  
 ======
 
 O aplikacji
