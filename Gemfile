@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-ruby "2.1.1"
-gem 'rails', '4.1.1'
+ruby "2.1.4"
+gem 'rails', '4.1.6'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'coffee-rails', '~> 4.0.0'
@@ -17,9 +17,9 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development do
   gem 'better_errors'
-  gem 'binding_of_caller'    
+  gem 'binding_of_caller'
   gem 'pry'
-  gem 'spring'     
+  gem 'spring'
 end
 
 group :production do
