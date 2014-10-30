@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @article = Article.first
+    @articles = Article.limit(1)
     @news = New.limit(3)
   end
 
