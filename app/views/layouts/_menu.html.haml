@@ -1,9 +1,13 @@
 .menu_box
-  .menu
-    .title
-      %img(src='https://dl.dropboxusercontent.com/u/63954981/Logo.png')
-    %ul
-      %li= link_to 'Home page', root_path
-      %li= link_to 'News', news_index_path
-      %li= link_to 'Articles', articles_path
-      %li= link_to 'About project', about_path
+	.user_menu
+		%ul
+			%li= link_to 'Log in', new_user_session_path
+			%li= link_to 'Sign in', new_user_registration_path
+	.menu
+		.title
+			%img(src='https://dl.dropboxusercontent.com/u/63954981/Logo.png')
+		%ul
+			%li= link_to 'Home page', root_path
+			%li= link_to 'News', news_index_path
+			%li= link_to 'Articles', articles_path
+			%li= link_to 'About project', about_path
