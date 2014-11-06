@@ -8,6 +8,12 @@
   %body
     = render 'layouts/top_menu'
     = render 'layouts/menu'
+    - if notice || alert
+      .message
+        - if notice
+          .notice= notice
+        - if alert
+          .alert= alert
     .content
       = yield
     = render 'layouts/footer'
