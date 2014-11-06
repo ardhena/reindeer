@@ -1,8 +1,12 @@
 .menu_box
 	.user_menu
 		%ul
-			%li= link_to 'Log in', new_user_session_path
-			%li= link_to 'Sign in', new_user_registration_path
+			- if user_signed_in?
+				%li= link_to 'Profile'
+				%li= link_to 'Log out', destroy_user_session_path, :method=>'delete'
+			- else
+				%li= link_to 'Log in', new_user_session_path
+				%li= link_to 'Sign in', new_user_registration_path
 	.menu
 		.title
 			%img(src='https://dl.dropboxusercontent.com/u/63954981/Logo.png')
