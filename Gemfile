@@ -18,7 +18,10 @@ gem 'uglifier', '>= 1.3.0'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'database_cleaner'
   gem 'pry'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
   gem 'spring'
 end
 
