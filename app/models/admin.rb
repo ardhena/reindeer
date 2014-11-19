@@ -4,5 +4,5 @@ class Admin < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :articles
-  has_many :news
+  has_many :news, class_name: 'New'
 end
