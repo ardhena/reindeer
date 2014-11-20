@@ -1,6 +1,6 @@
 class NewsController < ApplicationController
   
-	expose(:news) { New.all }
+	expose_decorated(:news, decorator: NewDecorator, collection: true) { New.all }
 
   def index
   end
