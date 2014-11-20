@@ -1,7 +1,11 @@
 class PagesController < ApplicationController
+
+	expose(:articles) { Article.limit(1) }
+	expose(:news) { New.limit(3) }
+
   def home
-    @articles = Article.limit(1)
-    @news = New.limit(3)
+    @articles = articles
+    @news = news
   end
 
   def about
