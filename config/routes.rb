@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :articles, only: [:index, :show]
   resources :news, only: [:index, :show]
   get 'pages/about', as: 'about'
+  get 'users/profile'
 end
