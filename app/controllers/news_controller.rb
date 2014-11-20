@@ -1,9 +1,8 @@
 class NewsController < ApplicationController
   
-	expose(:news)
+	expose(:news) { New.all }
 
   def index
-    @news = news
   end
 
   def show

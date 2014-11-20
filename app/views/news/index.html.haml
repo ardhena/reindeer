@@ -1,5 +1,5 @@
 %h1 News
-- @news.each do |n|
+- news.each do |n|
   .news
     %h2= n.title
     %span= n.created_at.to_formatted_s(:db)
