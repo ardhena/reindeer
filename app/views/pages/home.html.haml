@@ -1,12 +1,12 @@
 %h1 Newest news
-- @news.each do |n|
+- news.each do |n|
   .news
     %h2= n.title
     %span= n.created_at.to_formatted_s(:db)
     %span= n.admin.email
     %p= n.content
 %h1 Newest article
-- @articles.each do |a|
+- articles.each do |a|
   .article
     %h2= a.title
     %span= a.created_at.to_formatted_s(:db)

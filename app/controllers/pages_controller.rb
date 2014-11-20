@@ -4,8 +4,6 @@ class PagesController < ApplicationController
 	expose(:news) { New.limit(3) }
 
   def home
-    @articles = articles
-    @news = news
   end
 
   def about
