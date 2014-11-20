@@ -1,7 +1,2 @@
 %h1 News
-- news.each do |n|
-  .news
-    %h2= n.title
-    %span= n.date
-    %span= n.author
-    %p= n.content
+= render partial: 'new', collection: news

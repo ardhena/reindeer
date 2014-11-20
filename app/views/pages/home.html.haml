@@ -1,9 +1,4 @@
 %h1 Newest news
-- news.each do |n|
-  .news
-    %h2= n.title
-    %span= n.date
-    %span= n.author
-    %p= n.content
+= render partial: '/news/new', collection: news
 %h1 Newest article
 = render partial: '/articles/article', collection: articles
