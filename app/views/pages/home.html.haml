@@ -6,9 +6,4 @@
     %span= n.author
     %p= n.content
 %h1 Newest article
-- articles.each do |a|
-  .article
-    %h2= a.title
-    %span= a.date
-    %span= a.author
-    %p= a.content
+= render partial: '/articles/article', collection: articles
