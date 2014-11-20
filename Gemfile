@@ -5,7 +5,7 @@ gem 'rails', '4.1.6'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'coffee-rails', '~> 4.0.0'
-gem 'decent_decoration'
+gem 'decent_exposure'
 gem 'devise'
 gem 'haml'
 gem 'jbuilder', '~> 2.0'
