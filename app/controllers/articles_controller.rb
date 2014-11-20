@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-	expose(:articles)
+	expose_decorated(:articles)
 
   def index
   end
