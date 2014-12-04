@@ -1,5 +1,6 @@
 class New < ActiveRecord::Base
   belongs_to :admin
+  has_many :news_comments
 
   validates :title, presence: true
   validates :content, presence: true
