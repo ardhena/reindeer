@@ -1,5 +1,6 @@
 class Article < ActiveRecord::Base
   belongs_to :admin
+  has_many :articles_comments
 
   validates :title, presence: true
   validates :content, presence: true
