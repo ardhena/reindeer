@@ -1,5 +1,6 @@
 class ArticleDecorator < Draper::Decorator
 	delegate :title, :content
+	decorates_association :articles_comments
 
 	def date
 		object.created_at.to_formatted_s(:db)
