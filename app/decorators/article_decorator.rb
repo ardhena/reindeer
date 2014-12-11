@@ -1,5 +1,5 @@
 class ArticleDecorator < Draper::Decorator
-	delegate :title, :content
+	delegate :title
 	decorates_association :articles_comments
 
 	def date
@@ -8,5 +8,9 @@ class ArticleDecorator < Draper::Decorator
 
 	def author
 		object.admin.first_name + ' ' + object.admin.last_name
+	end
+
+	def content
+		object.content.html_safe
 	end
 end 
