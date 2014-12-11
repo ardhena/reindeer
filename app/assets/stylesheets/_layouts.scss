@@ -1,4 +1,16 @@
 body {
-	background-color: #444544;
+	background-color: $primary;
 	background-image: url("http://www.transparenttextures.com/patterns/cubes.png");
+	color: $primary-base;
+}
+
+a {
+	color: $primary;
+	&:hover {
+		color: $highlight;
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: $highlight;
 }

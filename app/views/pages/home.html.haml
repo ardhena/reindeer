@@ -1,4 +1,11 @@
-%h1 Newest news
-= render partial: '/news/new', collection: news
-%h1 Newest article
-= render partial: '/articles/article', collection: articles
+.panel.panel-secondary
+	.panel-heading 
+		%h3 Newest news
+	.panel-body
+		= render partial: '/news/new', collection: news
+
+.panel.panel-secondary
+	.panel-heading 
+		%h3 Newest articles
+	.panel-body
+		= render partial: '/articles/article', collection: articles
