@@ -1,19 +1,24 @@
 !!!
 %html
   %head
-    %title='Poland - Norway Communication Services'
+    .logo
+      %title='Poland - Norway Communication Services'
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    = render 'layouts/top_menu'
+    // = render 'layouts/top_menu'
     = render 'layouts/menu'
-    - if notice || alert
-      .message
-        - if notice
-          .notice= notice
-        - if alert
-          .alert= alert
-    .content
-      = yield
-    = render 'layouts/footer'
+
+    .container-fluid
+      .row
+        .col-md-1
+        .col-md-10
+          - if notice || alert
+            - if notice
+              .alert.alert-success= notice
+            - if alert || flash[:error]
+              .alert.alert-danger= alert || flash[:error]
+          = yield
+          = render 'layouts/footer'
+        .col-mid-1

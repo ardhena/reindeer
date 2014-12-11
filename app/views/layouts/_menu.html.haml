@@ -1,17 +1,19 @@
-.menu_box
-	.user_menu
-		%ul
-			- if user_signed_in?
-				%li= link_to 'Profile', profile_path(current_user)
-				%li= link_to 'Log out', destroy_user_session_path, :method=>'delete'
-			- else
-				%li= link_to 'Log in', new_user_session_path
-				%li= link_to 'Sign in', new_user_registration_path
-	.menu
-		.title
-			%img(src='https://dl.dropboxusercontent.com/u/63954981/Logo.png')
-		%ul
-			%li= link_to 'Home page', root_path
-			%li= link_to 'News', news_index_path
-			%li= link_to 'Articles', articles_path
-			%li= link_to 'About project', about_path
+%img(src='https://dl.dropboxusercontent.com/u/63954981/Logo.png')			
+
+%nav.navbar.navbar-default.navbar-static-top{ role: "navigation" }
+	.container-fluid
+		.navbar-header
+			= link_to 'Poland-Norway Communication Service', root_path, class: "navbar-brand"
+		#navbar.navbar-collapse.collapse
+			%ul.nav.navbar-nav
+				%li= link_to 'Home page', root_path
+				%li= link_to 'News', news_index_path
+				%li= link_to 'Articles', articles_path
+				%li= link_to 'About project', about_path
+			%ul.nav.navbar-nav.navbar-right
+				- if user_signed_in?
+					%li= link_to 'Profile', profile_path(current_user)
+					%li= link_to 'Log out', destroy_user_session_path, :method=>'delete'
+				- else
+					%li= link_to 'Log in', new_user_session_path
+					%li= link_to 'Sign in', new_user_registration_path
