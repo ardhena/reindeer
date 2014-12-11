@@ -1,0 +1,21 @@
+.navbar, .navbar-default {
+	background-color: $highlight;
+	border-color: $primary;
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+	margin-bottom: 60px;
+	.navbar-header a.navbar-brand {
+		color: $secondary-base;
+		&:hover { 
+			color: $secondary;
+			background-color: $primary;
+		}
+	}
+	.navbar-collapse ul.nav.navbar-nav li a {
+		color: $secondary;
+		&:hover { 
+			color: $secondary-base;
+			background-color: $primary-base;
+		}
+	}
+}
