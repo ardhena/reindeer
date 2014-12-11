@@ -14,7 +14,7 @@ ActiveAdmin.register Article do
   form do |f|
     f.inputs do
       f.input :title
-      f.input :content
+      f.input :content, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full'} }
     end
     f.actions
   end

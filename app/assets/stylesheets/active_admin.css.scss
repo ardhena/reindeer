@@ -39,3 +39,8 @@ body {
 .section, .panel { background-color: #dddddd; }
 
 form fieldset.inputs { background-color: #dddddd; }
+
+.cke_chrome {
+  width: 79.5% !important;
+  overflow: hidden;
+}
