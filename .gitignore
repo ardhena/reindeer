@@ -20,3 +20,4 @@
 /config/local_env.yml
 public_key
 public_key.pub
+/config/database.yml
