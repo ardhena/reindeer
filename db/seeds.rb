@@ -12,7 +12,7 @@ User.create(email: 'user@norway.test', password: '12345678')
 5.times do |i|
   New.create(title: "News #{i}", content: 'Lorem ipsum doloret sit ament', admin_id: Admin.find_by(email: 'admin@norway.test').id)
   2.times do |j|
-    NewsComment.create(content: "Comment #{j} for News #{i}", user_id: User.find_by(email: 'user@norway.test'), new_id: New.find_by(title: "News #{i}"))
+    NewsComment.create(content: "Comment #{j} for News #{i}", user_id: User.find_by(email: 'user@norway.test').id, new_id: New.find_by(title: "News #{i}").id)
   end
 end
 
