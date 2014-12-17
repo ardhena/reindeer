@@ -3,8 +3,3 @@
 	%span= article.date
 	%span= article.author
 	%p= article.content
-
-%h3 Comments
-.comments
-	- article.articles_comments.each do |comment|
-		= render 'comments/comment', comment: comment
