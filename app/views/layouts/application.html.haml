@@ -7,9 +7,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    // = render 'layouts/top_menu'
     = render 'layouts/menu'
-
     .container-fluid
       .row
         .col-md-1
@@ -18,6 +16,5 @@
             = render 'layouts/messages'
           .row
             = yield
-          .row
-            = render 'layouts/footer'
         .col-mid-1
+    = render 'layouts/footer'
