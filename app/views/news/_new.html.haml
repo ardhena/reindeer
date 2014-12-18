@@ -1,7 +1,6 @@
-- news.each do |n|
-  .news
-    %h2= n.title
-    %span= n.date
-    %span= n.author
-    %p= n.content
-    %span= link_to 'Read all', news_path(n)
+.news
+  %h2= new.title
+  %span= new.date
+  %span= new.author
+  %p= new.content
+  %span= link_to 'Read all', news_path(new)

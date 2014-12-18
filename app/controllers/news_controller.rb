@@ -1,6 +1,7 @@
 class NewsController < ApplicationController
-  
-	expose_decorated(:news, decorator: NewDecorator, collection: true) { New.all }
+
+	expose_decorated(:news, decorator: NewDecorator, collection: true) {
+    New.all.page(params[:page]).per(2) }
 	expose_decorated(:new, decorator: NewDecorator, collection: false) { New.find(params[:id]) }
 
   def index
