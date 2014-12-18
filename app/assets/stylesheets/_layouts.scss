@@ -2,6 +2,8 @@ body {
 	background-color: $background;
   background-image: url("http://www.transparenttextures.com/patterns/absurdity.png");
 	color: $primary-base;
+  font-family: $slant-font;
+  font-size: 14pt;
 }
 
 a {
@@ -13,4 +15,10 @@ a {
 
 h1, h2, h3, h4, h5, h6 {
 	color: $highlight;
+}
+
+.btn {
+  font-family: $font;
+  font-style: italic;
+  font-size: 12pt;
 }
