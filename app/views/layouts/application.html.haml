@@ -7,13 +7,11 @@
     = csrf_meta_tags
   %body
     = render 'layouts/menu'
-    .container-fluid
+    .container.container-fluid
       .row
-        .col-md-1
-        .col-md-10
+        .col-md-12
           .row
             = render 'layouts/messages'
           .row
             = yield
-        .col-mid-1
     = render 'layouts/footer'

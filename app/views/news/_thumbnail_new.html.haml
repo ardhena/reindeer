@@ -1,0 +1,8 @@
+.col-lg-4
+  .thumbnail
+    .caption
+      %h3= new.title
+      %span= new.date
+      %span= new.author
+      %p= new.content
+      %span= link_to 'Read more', news_path(new)

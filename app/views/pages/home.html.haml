@@ -1,11 +1,13 @@
-.panel.panel-secondary
-	.panel-heading
-		%h3 Newest news
-	.panel-body
-		= render news
+.thumbnail
+  = image_tag("https://dl.dropboxusercontent.com/u/52870658/reindeer_landscape.jpg")
+  .caption
+    %h1 Welcome to Reindeer!
+    %p It is a website that connects students from Norway and Poland.
 
-.panel.panel-secondary
-	.panel-heading
-		%h3 Newest articles
-	.panel-body
-		= render articles
+.row
+  - news.each do |new|
+    = render 'news/thumbnail_new', new: new
+
+.row
+  - articles.each do |article|
+    = render 'articles/thumbnail_article', article: article

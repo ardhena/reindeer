@@ -1,0 +1,8 @@
+.col-lg-12
+  .thumbnail
+    .caption
+      %h2= article.title
+      %span= article.date
+      %span= article.author
+      %p= article.content
+      %span= link_to 'Read more', article_path(article)
