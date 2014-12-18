@@ -1,7 +1,9 @@
 %nav.navbar.navbar-default.navbar-static-top{ role: "navigation" }
 	.container-fluid
 		.navbar-header
-			= link_to 'Poland-Norway Communication Service', root_path, class: "navbar-brand"
+			= link_to root_path do
+				%img.navbar-brand{ src: 'https://dl.dropboxusercontent.com/u/52870658/reindeer_colour.png', class: 'logo' }
+				.navbar-brand Reindeer
 		#navbar.navbar-collapse.collapse
 			%ul.nav.navbar-nav
 				%li= link_to 'Home page', root_path

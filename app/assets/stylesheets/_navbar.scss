@@ -5,18 +5,32 @@
 	border-bottom: 1px solid;
 	margin-top: 10px;
 	margin-bottom: 60px;
-	.navbar-header a.navbar-brand {
-		color: $secondary;
+	.navbar-header {
+		padding-left: 20px;
+		padding-right: 10px;
 		&:hover {
-			color: $primary-base;
+			background-color: $primary;
+			.navbar-brand {
+				color: $highlight;
+			}
+		}
+		.navbar-brand {
+			color: $secondary;
 		}
 	}
 	.navbar-collapse ul.nav.navbar-nav li a {
-		color: $primary;
+		color: $primary-base;
 		&:hover {
 			color: $secondary;
 		}
 	}
+}
+
+.logo {
+	height: 50px;
+	padding: 5px;
+	padding-right: 15px;
+	padding-left: 15px;
 }
 
 .footer {
