@@ -1,8 +1,11 @@
 .thumbnail
   = image_tag("https://dl.dropboxusercontent.com/u/52870658/reindeer_landscape.jpg")
   .caption
-    %h1 Welcome to Reindeer!
-    %p It is a website that connects students from Norway and Poland.
+    %h1.header Welcome to Reindeer!
+    %p It is a website that connects students from Norway and Poland. You can find here people, chat with them and get to know their culture. It can motivate you to become more fluent and expierienced in English.
+    %p Additionaly, the main topic of our site is security and equality on the Internet. Teachers from Norway and Poland are constantly posting new articles about these issues.
+    %p Sign in to get as much as you can from Reindeer website. Feel free to leave us comments or advice. Invite your friends and enjoy with them all features of Reindeer.
+    %span= link_to 'Read more about this project', about_path, class: 'btn btn-default'
 
 .row
   - news.each do |new|

@@ -1,8 +1,8 @@
 .col-lg-4
   .thumbnail
     .caption
-      %h3= new.title
-      %span= new.date
-      %span= new.author
+      %h2.header= new.title
+      %span.date= new.date
+      %span.author= new.author
       %p= new.content
-      %span= link_to 'Read more', news_path(new)
+      %span= link_to 'Read more', news_path(new), class: 'btn btn-default'
