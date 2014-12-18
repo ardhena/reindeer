@@ -1,7 +1,6 @@
-- articles.each do |a|
-	.article
-		%h2= a.title
-		%span= a.date
-		%span= a.author
-		%p= a.content
-		%span= link_to 'Read all', article_path(a)
+.article
+  %h2= article.title
+  %span= article.date
+  %span= article.author
+  %p= article.content
+  %span= link_to 'Read all', article_path(article)
