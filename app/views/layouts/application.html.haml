@@ -14,11 +14,10 @@
       .row
         .col-md-1
         .col-md-10
-          - if notice || alert
-            - if notice
-              .alert.alert-success= notice
-            - if alert || flash[:error]
-              .alert.alert-danger= alert || flash[:error]
-          = yield
-          = render 'layouts/footer'
+          .row
+            = render 'layouts/messages'
+          .row
+            = yield
+          .row
+            = render 'layouts/footer'
         .col-mid-1
