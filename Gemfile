@@ -20,6 +20,7 @@ gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'pg'
 gem 'sass-rails', '~> 4.0.3'
 gem 'simple_form'
+gem 'truncate_html'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
