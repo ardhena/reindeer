@@ -27,3 +27,28 @@
     color: $highlight;
   }
 }
+
+ul.pagination {
+  border-color: $secondary;
+  color: $secondary;
+  li a, li.disabled a {
+    border-color: $secondary;
+    background-color: $highlight;
+    color: $secondary;
+    &:hover {
+      border-color: $secondary;
+      color: $highlight;
+      background-color: $secondary;
+    }
+  }
+  li.active a {
+    border-color: $secondary;
+    background-color: $primary;
+    color: $secondary;
+    &:hover {
+      border-color: $secondary;
+      color: $primary;
+      background-color: $secondary;
+    }
+  }
+}
