@@ -1,8 +1,0 @@
-.col-lg-12
-  .tile
-    .caption
-      %h2.header= article.title
-      %span.date= article.date
-      %span.author= article.author
-      %p= truncate_html(article.content, length: 1500)
-      %span= link_to 'Read more', article_path(article), class: 'btn btn-default'

@@ -9,8 +9,9 @@
 
 .row
   - news.each do |new|
-    = render 'news/tile_new', new: new
+    .col-lg-4
+      = render 'news/new', new: new, length: 320
 
 .row
   - articles.each do |article|
-    = render 'articles/tile_article', article: article
+    = render 'articles/article', article: article, length: 1000
