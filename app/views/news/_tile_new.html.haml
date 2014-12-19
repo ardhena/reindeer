@@ -4,5 +4,5 @@
       %h2.header= new.title
       %span.date= new.date
       %span.author= new.author
-      %p= new.content
+      %p= truncate_html(new.content, length: 320)
       %span= link_to 'Read more', news_path(new), class: 'btn btn-default'
