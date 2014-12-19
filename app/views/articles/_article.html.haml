@@ -1,6 +1,7 @@
-.article
-  %h2= article.title
-  %span= article.date
-  %span= article.author
-  %p= article.content
-  %span= link_to 'Read all', article_path(article)
+.tile.article
+  .caption
+    %h2.header= article.title
+    %span.date= article.date
+    %span.author= article.author
+    %p= truncate_html(article.content, length: 1000)
+    %span= link_to 'Read more', articles_path(article), class: 'btn btn-default'
