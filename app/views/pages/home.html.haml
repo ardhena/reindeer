@@ -7,11 +7,19 @@
     %p Sign in to get as much as you can from Reindeer website. Feel free to leave us comments or advice. Invite your friends and enjoy with them all features of Reindeer.
     %span= link_to 'Read more about this project', about_path, class: 'btn btn-default'
 
+.page-header
+  %h2
+    %span Latest news
+    %span= link_to 'View all news', news_index_path, class: 'btn btn-header'
 .row
   - news.each do |new|
     .col-lg-4
       = render 'news/new', new: new, length: 320
 
+.page-header
+  %h2
+    %span Newest article
+    %span= link_to 'View all articles', articles_path, class: 'btn btn-header'
 .row
   - articles.each do |article|
     .col-lg-12

@@ -5,10 +5,15 @@
   border-bottom: $primary solid 5px;
   border-radius: 4px;
   background-color: rgba($primary, 0.2);
-  h1 {
-    padding-left: 20px;
+  h1, h2 {
+    margin-left: 20px;
     color: $secondary;
     text-shadow: $highlight 2px 2px;
+    a.btn {
+      float: right;
+      margin-right: 20px;
+      text-shadow: none;
+    }
   }
 }
 

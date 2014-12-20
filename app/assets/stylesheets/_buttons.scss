@@ -11,3 +11,13 @@
     background-color: $primary
   }
 }
+
+.btn.btn-header {
+  background-color: $primary;
+  border-color: $primary-base;
+  color: $secondary;
+  &:hover {
+    color: $secondary;
+    background-color: $highlight;
+  }
+}
