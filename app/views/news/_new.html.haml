@@ -1,6 +1,6 @@
 .tile.news
   .caption
-    %h2.header= new.title
+    %h2= new.title
     %span.date= new.date
     %span.author= new.author
     %p= truncate_html(new.content, length: length)

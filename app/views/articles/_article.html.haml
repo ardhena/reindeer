@@ -1,6 +1,6 @@
 .tile.article
   .caption
-    %h2.header= article.title
+    %h2= article.title
     %span.date= article.date
     %span.author= article.author
     %p= truncate_html(article.content, length: length)
