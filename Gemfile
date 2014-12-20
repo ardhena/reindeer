@@ -24,10 +24,11 @@ gem 'truncate_html'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
-group :development do
+group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'database_cleaner'
+  gem 'factory_girl_rails'
   gem 'pry'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
