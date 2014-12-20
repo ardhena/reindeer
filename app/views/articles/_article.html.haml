@@ -4,4 +4,4 @@
     %span.date= article.date
     %span.author= article.author
     %p= truncate_html(article.content, length: length)
-    %span= link_to 'Read more', articles_path(article), class: 'btn btn-default'
+    %span= link_to 'Read more', article_path(article), class: 'btn btn-default'
