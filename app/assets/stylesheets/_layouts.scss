@@ -7,14 +7,13 @@
   background-color: rgba($primary, 0.2);
   h1 {
     padding-left: 20px;
-    font-family: $font;
-    font-style: italic;
     color: $secondary;
     text-shadow: $highlight 2px 2px;
   }
 }
 
 footer.footer {
+  font-family: $slant-font;
   margin-top: 20px;
   border-top: $primary solid 1px;
   .container p {
