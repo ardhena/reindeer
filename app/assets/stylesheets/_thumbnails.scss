@@ -15,15 +15,3 @@
     font-style: italic;
   }
 }
-
-.tile {
-  @extend .thumbnail;
-  .date {
-    font-size: 10pt;
-    color: $primary;
-  }
-  .author {
-    font-size: 10pt;
-    color: $highlight;
-  }
-}

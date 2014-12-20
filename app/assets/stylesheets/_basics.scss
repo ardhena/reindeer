@@ -1,0 +1,22 @@
+body {
+  background-color: $background;
+  background-image: url("http://www.transparenttextures.com/patterns/absurdity.png");
+  color: $primary-base;
+  font-family: $slant-font;
+  font-size: 14pt;
+}
+
+a {
+  color: $primary;
+  &:hover {
+    color: $highlight;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $highlight;
+}
+
+p {
+  text-align: justify;
+}

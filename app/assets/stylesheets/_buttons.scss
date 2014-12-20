@@ -1,3 +1,9 @@
+.btn {
+  font-family: $font;
+  font-style: italic;
+  font-size: 12pt;
+}
+
 .btn.btn-default {
   background-color: $highlight;
   border-color: $primary-base;
