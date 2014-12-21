@@ -4,3 +4,9 @@
     %span.date= new.date
     %span.author= new.author
     %p= new.content
+
+.comments
+  %h3 Comments
+  = render 'comments/form', comment: new_comment
+  - comments.each do |comment|
+    = render 'comments/comment', comment: comment
