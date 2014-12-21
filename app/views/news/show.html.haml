@@ -10,4 +10,5 @@
     %h3 Comments
   = render 'comments/form', comment: new_comment
   - comments.each do |comment|
-    = render 'comments/comment', comment: comment
+    - unless comment.created_at.nil?
+      = render 'comments/comment', comment: comment
