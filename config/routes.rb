@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :news, only: [:index, :show]
   get 'pages/about', as: 'about'
   resources :profiles
+  resources :comments, only: [:create, :destroy]
 end
