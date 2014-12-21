@@ -1,13 +1,13 @@
 .btn {
   font-size: 12pt;
   font-family: $slant-font;
-  margin-top: 10px;
 }
 
 .btn.btn-default {
   background-color: $highlight;
   border-color: $primary-base;
   color: $secondary;
+  margin-top: 10px;
   &:hover {
     color: $secondary;
     background-color: $primary
