@@ -1,0 +1,20 @@
+.panel.panel-default {
+  background-color: $background;
+  background-image: url("http://www.transparenttextures.com/patterns/absurdity.png");
+  border-color: $primary;
+  .panel-heading {
+    background-color: rgba($primary, 0.2);
+    border-color: $primary;
+    border-bottom: $primary solid 5px;
+    h2 {
+      padding: 0;
+      margin: 10px;
+      color: $secondary;
+      text-shadow: $highlight 2px 2px;
+    }
+  }
+  .panel-body {
+    background-color: $secondary;
+    background-image: url("http://www.transparenttextures.com/patterns/absurdity.png");
+  }
+}
