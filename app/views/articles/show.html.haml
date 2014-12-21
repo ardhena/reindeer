@@ -4,3 +4,11 @@
     %span.date= article.date
     %span.author= article.author
     %p= article.content
+
+.comments
+  .page-header
+    %h3 Comments
+  = render 'comments/form', comment: new_comment
+  - comments.each do |comment|
+    - unless comment.created_at.nil?
+      = render 'comments/comment', comment: comment
