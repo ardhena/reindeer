@@ -1,6 +1,8 @@
 class Article < ActiveRecord::Base
   belongs_to :admin
 
+  acts_as_commentable
+
   validates :title, presence: true
   validates :content, presence: true, length: { minimum: 2000 }
 
