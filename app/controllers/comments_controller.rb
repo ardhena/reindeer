@@ -26,12 +26,10 @@ class CommentsController < ApplicationController
       end
     else
       respond_to do |format|
+        @new_comment = @comment.decorate
         format.js   { render action: "new" }
-        format.json { render json: @comment }
       end
-      # render js: "alert('error saving comment');"
     end
-    # <div class="alert alert-danger">...</div>
   end
 
   def destroy

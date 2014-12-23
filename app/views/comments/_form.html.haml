@@ -4,6 +4,7 @@
       %h2 New comment
     .panel-body
       = simple_form_for comment, remote: true do |f|
+        = f.error_notification
         .form-inputs
           = f.input :title
           = f.input :comment
