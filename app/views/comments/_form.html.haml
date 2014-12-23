@@ -1,9 +1,14 @@
-.tile.comment-form
-  = simple_form_for comment, remote: true do |f|
-    .form-inputs
-      = f.input :title
-      = f.input :comment
-      = f.input :commentable_id, as: :hidden, value: comment.commentable_id
-      = f.input :commentable_type, as: :hidden, value: comment.commentable_type
-    .form-actions
-      = f.button :submit, "Add comment", class: "btn btn-default", disable_with: "Submitting…"
+.comment-form{ style: "display: none;" }
+  .panel.panel-default
+    .panel-heading
+      %h2 New comment
+    .panel-body
+      = simple_form_for comment, remote: true do |f|
+        .form-inputs
+          = f.input :title
+          = f.input :comment
+          = f.input :commentable_id, as: :hidden, value: comment.commentable_id
+          = f.input :commentable_type, as: :hidden, value: comment.commentable_type
+        .form-actions
+          = f.button :submit, "Add comment", class: "btn btn-header", disable_with: "Submitting…"
+      %span.btn.btn-default.cancel-comment Cancel

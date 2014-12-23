@@ -1,4 +1,11 @@
-$ ->
+$(document).on 'ready page:load', ->
+
+  $(".comment-form .cancel-comment").click ->
+    $(".comment-form").slideUp()
+
+  $(".comments .add-comment").click ->
+    $(".comment-form").slideToggle()
+
   # Create a comment
   $(".comment-form")
     .on "ajax:beforeSend", (evt, xhr, settings) ->
