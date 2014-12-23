@@ -32,9 +32,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  def destroy
-  end
-
   def comment_params
     params.require(:comment).permit(:title, :comment, :commentable_type, :commentable_id)
   end
