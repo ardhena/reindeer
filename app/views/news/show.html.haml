@@ -8,7 +8,9 @@
 .comments
   .page-header
     %h2
-      %span Comments
+      %span
+        %span.glyphicon.glyphicon-comment
+        %span= new.comments
       - if user_signed_in?
         %span= link_to 'Add comment', new_comment_path(comment: { commentable_type: object, commentable_id: new }), remote: true, class: 'btn btn-header add-comment'
   #comment-form

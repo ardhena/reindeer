@@ -4,4 +4,7 @@
     %span.date= new.date
     %span.author= new.author
     %p= truncate_html(new.content, length: length)
+    .comments-count
+      %span.glyphicon.glyphicon-comment
+      %span= new.comments
     %span= link_to 'Read more', news_path(new), class: 'btn btn-default'

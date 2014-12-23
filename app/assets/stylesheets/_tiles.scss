@@ -8,4 +8,11 @@
     font-size: 10pt;
     color: $highlight;
   }
+  .comments-count {
+    color: $primary;
+    font-family: $slant-font;
+    font-size: 12pt;
+    padding: 5px;
+    float: right;
+  }
 }

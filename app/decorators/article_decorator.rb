@@ -1,6 +1,6 @@
 class ArticleDecorator < Draper::Decorator
 	delegate :title
-	decorates_association :articles_comments
+	decorates_association :comments
 	decorates_association :admin
 
 	def date
@@ -13,5 +13,9 @@ class ArticleDecorator < Draper::Decorator
 
 	def content
 		object.content.html_safe
+	end
+
+	def comments
+		"#{object.comments.count} " + 'comment'.pluralize(object.comments.count)
 	end
 end

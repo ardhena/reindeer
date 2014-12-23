@@ -1,6 +1,6 @@
 class NewDecorator < Draper::Decorator
 	delegate :title, :content
-	decorates_association :news_comments
+	decorates_association :comments
   decorates_association :admin
 
 	def date
@@ -10,4 +10,8 @@ class NewDecorator < Draper::Decorator
 	def author
 		"#{admin.first_name} #{admin.last_name}"
 	end
+
+  def comments
+    "#{object.comments.count} " + 'comment'.pluralize(object.comments.count)
+  end
 end
