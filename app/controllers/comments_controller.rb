@@ -2,8 +2,6 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
 
   expose(:object) { comment_params[:commentable_type].constantize.find(comment_params[:commentable_id]) }
-  expose_decorated(:comments) { object.comments }
-  expose_decorated(:comment) { comments.first }
 
   def new
     @new_comment = object.comments.new
@@ -22,10 +20,10 @@ class CommentsController < ApplicationController
     @comment = object.comments.create(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
+      @comment = @comment.decorate
       respond_to do |format|
         format.js
       end
-      # render partial: "comments/comment", locals: { comment: @comment.decorate }, layout: false, status: :created
     else
       respond_to do |format|
         format.js   { render action: "new" }

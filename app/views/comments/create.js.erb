@@ -1,6 +1,12 @@
-$("#comments-list").prepend("<%= j (render comment) %>").children().first().hide();
+$("#comments-list").prepend("<%= j (render @comment) %>").children().first().hide();
 $(".comments .page-header .add-comment").fadeIn();
 $(".comment-form").slideUp(500, function() {
   $(".comment-form").remove();
   $("#comments-list .tile.comment").first().slideDown(500);
+});
+$(".page-header").after("<div class='alert alert-success'>Comment was created.</div>");
+$(".alert").on("click", function() {
+  $(this).fadeOut(500, function() {
+    $(this).remove();
+  });
 });
