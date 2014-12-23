@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   get 'pages/about', as: 'about'
   resources :profiles
   resources :comments, only: [:new, :create, :destroy]
+  get '/comments/cancel', to: 'comments#cancel', as: 'cancel_comment'
 end

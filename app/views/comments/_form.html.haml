@@ -11,4 +11,4 @@
           = f.input :commentable_type, as: :hidden, value: comment.commentable_type
         .form-actions
           = f.button :submit, "Add comment", class: "btn btn-header", disable_with: "Submitting…"
-      %span.btn.btn-default.cancel-comment Cancel
+      %span= link_to 'Cancel', cancel_comment_path, remote: true, class: 'btn btn-default cancel-comment'

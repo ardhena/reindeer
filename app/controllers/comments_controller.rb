@@ -9,6 +9,12 @@ class CommentsController < ApplicationController
     end
   end
 
+  def cancel
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def create
     @object = comment_params[:commentable_type].constantize.find(comment_params[:commentable_id])
     @comment = @object.comments.create(comment_params)

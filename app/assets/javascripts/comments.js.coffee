@@ -1,12 +1,5 @@
 $(document).on 'ready page:load', ->
 
-  $("#comment-form").on "click", ".cancel-comment", ->
-    $(".comments .page-header .add-comment").fadeIn();
-    $(".comment-form").slideUp 500, ->
-      $(".comment-form").remove()
-    # $(this).remove()
-
-
   # Create a comment
   # $(".comment-form")
   #   .on "ajax:beforeSend", (evt, xhr, settings) ->
