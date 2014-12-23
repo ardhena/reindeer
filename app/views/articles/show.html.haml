@@ -9,7 +9,8 @@
   .page-header
     %h2
       %span Comments
-      %span.btn.btn-header.add-comment Add comment
+      - if user_signed_in?
+        %span.btn.btn-header.add-comment Add comment
   = render 'comments/form', comment: new_comment
   - comments.each do |comment|
     - unless comment.created_at.nil?
