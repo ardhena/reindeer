@@ -2,9 +2,11 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
 
   expose(:object) { comment_params[:commentable_type].constantize.find(comment_params[:commentable_id]) }
+  expose(:new_comment)
+  expose_decorated(:comment)
 
   def new
-    @new_comment = object.comments.new
+    self.new_comment = object.comments.new
     respond_to do |format|
       format.js
     end
@@ -17,16 +19,15 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = object.comments.create(comment_params)
-    @comment.user_id = current_user.id
-    if @comment.save
-      @comment = @comment.decorate
+    self.comment = object.comments.create(comment_params)
+    comment.user_id = current_user.id
+    if comment.save
       respond_to do |format|
         format.js
       end
     else
       respond_to do |format|
-        @new_comment = @comment.decorate
+        self.new_comment = comment
         format.js   { render action: "new" }
       end
     end
