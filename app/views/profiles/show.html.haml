@@ -1,0 +1,8 @@
+.page-header
+  %h1
+    = user.name
+    - if user == current_user
+      %span= link_to 'Edit profile', edit_profile_path(user), class: 'btn btn-header'
+      %span= link_to 'My profile', my_profile_path, class: 'btn btn-default'
+.tile.profile
+  = render 'public_info'
