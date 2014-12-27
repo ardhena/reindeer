@@ -4,10 +4,15 @@
   .col-md-6
     .tile.profile
       .caption
-        %h2 Public info
+        %h2
+          Public info
+          %span= link_to 'Edit profile', edit_profile_path(user), class: 'btn btn-default'
+          %span= link_to 'View public profile', profile_path(user), class: 'btn btn-header'
         = render 'public_info'
   .col-md-6
     .tile.profile
       .caption
-        %h2 Account info
+        %h2
+          Account info
+          %span= link_to 'Edit account', edit_user_registration_path, class: 'btn btn-default'
         = render 'account_info'
