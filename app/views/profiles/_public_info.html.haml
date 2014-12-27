@@ -7,7 +7,7 @@
     %td= user.last_name
   %tr
     %th Sex
-    %td= user.sex
+    %td= I18n.t("sexes.#{user.sex}")
   %tr
     %th Birthday
     %td= user.birthday
@@ -16,10 +16,10 @@
     %td= user.age
   %tr
     %th Country
-    %td= user.country
+    %td= I18n.t("countries.#{user.country}")
   %tr
     %th School
-    %td= user.school
+    %td= I18n.t("schools.#{user.school}")
   %tr
     %th City
     %td= user.city
