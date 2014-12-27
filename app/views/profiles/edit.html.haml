@@ -1,0 +1,16 @@
+.panel.panel-default
+  .panel-heading
+    %h2 Edit profile
+  .panel-body
+    = simple_form_for user, url: profile_path(user) do |f|
+      = f.error_notification
+      .form-inputs
+        = f.input :first_name
+        = f.input :last_name
+        = f.input :sex, collection: user.sexes_collection, selected: user.sex
+        = f.input :birth
+        = f.input :country, collection: user.countries_collection, selected: user.country
+        = f.input :school, collection: user.schools_collection, selected: user.school
+        = f.input :city
+      .form-actions
+        = f.button :submit, "Update", class: 'btn btn-header'

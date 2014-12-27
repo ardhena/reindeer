@@ -21,3 +21,14 @@
 
 en:
   hello: "Hello world"
+
+  countries:
+    norway: 'Norway'
+    poland: 'Poland'
+  schools:
+    norwegian_school: 'Some norwegian school'
+    polish_high_school: 'XXXII LO in ZSK Poznan'
+    polish_technical_school: 'Technikum Komunikacji in ZSK Poznan'
+  sexes:
+    female: 'Female'
+    male: 'Male'

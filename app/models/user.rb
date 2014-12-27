@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   enum country: [:norway, :poland]
-  enum school: [:zsk, :nschool]
+  enum school: [:norwegian_school, :polish_high_school, :polish_technical_school]
   enum sex: [:female, :male]
 
   validates :first_name, presence: true, length: { minimum: 2 }
