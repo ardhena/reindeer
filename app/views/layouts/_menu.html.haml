@@ -12,7 +12,8 @@
 				%li= link_to 'About project', about_path
 			%ul.nav.navbar-nav.navbar-right
 				- if user_signed_in?
-					%li= link_to 'My profile', my_profile_path
+					%li= link_to 'Public profile', profile_path(current_user)
+					%li= link_to 'Account details', my_profile_path
 					%li= link_to 'Log out', destroy_user_session_path, :method=>'delete'
 				- elsif admin_signed_in?
 					%li= link_to 'Admin panel', admin_panel_root_path
