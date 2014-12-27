@@ -11,6 +11,19 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    self.user = current_user
   end
+
+  def update
+    self.user = current_user
+    if user.update(profile_params)
+      redirect_to my_profile_path, notice: 'Your profile info was updated.'
+    end
+  end
+
+  private
+    def profile_params
+      params.require(:user).permit(:first_name, :last_name, :sex, :birth, :country, :school, :city)
+    end
 
 end

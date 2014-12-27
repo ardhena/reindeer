@@ -6,7 +6,7 @@
       .caption
         %h2
           Public info
-          %span= link_to 'Edit profile', edit_profile_path(user), class: 'btn btn-default'
+          %span= link_to 'Edit profile', edit_my_profile_path, class: 'btn btn-default'
           %span= link_to 'View public profile', profile_path(user), class: 'btn btn-header'
         = render 'public_info'
   .col-md-6
