@@ -18,6 +18,8 @@ class ProfilesController < ApplicationController
     self.user = current_user
     if user.update(profile_params)
       redirect_to my_profile_path, notice: 'Your profile info was updated.'
+    else
+      render 'edit'
     end
   end
 
