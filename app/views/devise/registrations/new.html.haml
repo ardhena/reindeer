@@ -8,6 +8,13 @@
         = f.input :email, required: true
         = f.input :password, required: true
         = f.input :password_confirmation, required: true
+        = f.input :first_name
+        = f.input :last_name
+        = f.input :sex, collection: resource.decorate.sexes_collection
+        = f.input :birth, as: :date
+        = f.input :country, collection: resource.decorate.countries_collection
+        = f.input :school, collection: resource.decorate.schools_collection
+        = f.input :city
       .form-actions
         = f.button :submit, "Sign up", class: 'btn btn-header'
     = render "devise/shared/links"

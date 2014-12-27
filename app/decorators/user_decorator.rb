@@ -14,20 +14,20 @@ class UserDecorator < Draper::Decorator
   end
 
   def countries_collection
-    User.countries.map do |type, _|
-      [I18n.t(type, scope: :countries)]
+    User.countries.map do |name, value|
+      [I18n.t(name, scope: :countries), name]
     end
   end
 
   def schools_collection
-    User.schools.map do |type, _|
-      [I18n.t(type, scope: :schools)]
+    User.schools.map do |name, value|
+      [I18n.t(name, scope: :schools), name]
     end
   end
 
   def sexes_collection
-    User.sexes.map do |type, _|
-      [I18n.t(type, scope: :sexes)]
+    User.sexes.map do |name, value|
+      [I18n.t(name, scope: :sexes), name]
     end
   end
 end
