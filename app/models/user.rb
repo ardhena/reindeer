@@ -15,4 +15,9 @@ class User < ActiveRecord::Base
   validates :school, presence: true
   validates :sex, presence: true
   validates :city, presence: true, length: { minimum: 2 }
+
+  def age
+    now = Time.now.utc.to_date
+    now.year - self.birth.year - ((now.month > self.birth.month || (now.month == self.birth.month && now.day >= self.birth.day)) ? 0 : 1)
+  end
 end
