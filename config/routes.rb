@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :articles, only: [:index, :show]
   resources :news, only: [:index, :show]
   get 'pages/about', as: 'about'
-  resources :profiles
+  get 'my_profile', to: 'profiles#my_profile', as: 'my_profile'
   resources :comments, only: [:new, :create]
   get '/comments/cancel', to: 'comments#cancel', as: 'cancel_comment'
 end

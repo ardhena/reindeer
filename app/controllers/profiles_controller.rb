@@ -3,7 +3,8 @@ class ProfilesController < ApplicationController
 
 	expose(:user)
 
-	def show
+	def my_profile
+    self.user = current_user
 	end
 
 end
