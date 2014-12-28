@@ -1,5 +1,13 @@
 %table.table
   %tr
+    %th Gravatar
+    %td
+      %span= image_tag user.gravatar_url
+      -if user == current_user
+        %span
+          Change your avatar on
+          = link_to 'gravatar.com', 'http://gravatar.com', target: '_blank'
+  %tr
     %th First name
     %td= user.first_name
   %tr
