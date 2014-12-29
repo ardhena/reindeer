@@ -5,6 +5,7 @@ gem 'rails', '4.1.6'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'acts_as_commentable'
+gem 'acts-as-taggable-on', '~> 3.4'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'ckeditor'
