@@ -17,7 +17,7 @@ class ProfilesController < ApplicationController
   def update
     self.user = current_user
     if user.update(profile_params)
-      user.interest_list.add(params[:user][:interest_list])
+      user.interest_list = params[:user][:interest_list]
       user.save
       redirect_to my_profile_path, notice: 'Your profile info was updated.'
     else
