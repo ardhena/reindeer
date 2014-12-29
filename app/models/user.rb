@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   include Gravtastic
   has_gravatar default: :identicon, size: 40
 
+  acts_as_taggable_on :interests
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
