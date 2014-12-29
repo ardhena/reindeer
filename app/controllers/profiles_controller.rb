@@ -17,6 +17,8 @@ class ProfilesController < ApplicationController
   def update
     self.user = current_user
     if user.update(profile_params)
+      user.interest_list.add(params[:user][:interest_list])
+      user.save
       redirect_to my_profile_path, notice: 'Your profile info was updated.'
     else
       render 'edit'
@@ -25,7 +27,7 @@ class ProfilesController < ApplicationController
 
   private
     def profile_params
-      params.require(:user).permit(:first_name, :last_name, :sex, :birth, :country, :school, :city, :interest_list)
+      params.require(:user).permit(:first_name, :last_name, :sex, :birth, :country, :school, :city)
     end
 
 end

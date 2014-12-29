@@ -30,4 +30,16 @@ class UserDecorator < Draper::Decorator
       [I18n.t(name, scope: :sexes), name]
     end
   end
+
+  def interests_collection
+    ActsAsTaggableOn::Tag.all.joins(:taggings).where(taggings: { context: 'interests' } ).uniq.pluck(:name)
+  end
+
+  def interests
+    array = []
+    object.taggings.where(context: 'interests').each do |tagging|
+      array += [tagging.tag.name]
+    end
+    array
+  end
 end
