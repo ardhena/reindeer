@@ -21,6 +21,10 @@ class UserDecorator < Draper::Decorator
     object.language_list.each { |lang| lang.capitalize! }.sort_by { |lang| lang }*", "
   end
 
+  def bio
+    object.bio.nil? ? object.bio : object.bio.html_safe
+  end
+
   def countries_collection
     User.countries.map do |name, value|
       [I18n.t(name, scope: :countries), name]

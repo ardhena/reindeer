@@ -28,7 +28,7 @@ class ProfilesController < ApplicationController
 
   private
     def profile_params
-      params.require(:user).permit(:first_name, :last_name, :sex, :birth, :country, :school, :city)
+      params.require(:user).permit(:first_name, :last_name, :sex, :birth, :country, :school, :city, :bio)
     end
 
     def interests_array

@@ -16,5 +16,6 @@
         = f.input :new_interests, as: :string, label: false, placeholder: 'Write other interests'
         = f.input :language_list, as: :check_boxes, collection: user.languages_collection, checked: user.languages, item_wrapper_tag: :span, item_wrapper_class: "col-md-4", label: false
         = f.input :new_languages, as: :string, label: false, placeholder: 'Other known languages'
+        = f.input :bio, input_html: { rows: 10 }, hint: 'You can use html tags here if you want.'
       .form-actions
         = f.button :submit, "Update", class: 'btn btn-header'

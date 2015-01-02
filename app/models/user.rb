@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   validates :school, presence: true
   validates :sex, presence: true
   validates :city, presence: true, length: { minimum: 2 }
+  validates :bio, length: { maximum: 5000 }
 
   def age
     now = Time.now.utc.to_date
