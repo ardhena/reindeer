@@ -13,6 +13,10 @@ class UserDecorator < Draper::Decorator
     "#{object.age} " + 'year'.pluralize(object.age)
   end
 
+  def interest_list
+    object.interest_list.sort_by { |interest| interest.downcase }*", "
+  end
+
   def countries_collection
     User.countries.map do |name, value|
       [I18n.t(name, scope: :countries), name]
