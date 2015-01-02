@@ -17,6 +17,10 @@ class UserDecorator < Draper::Decorator
     object.interest_list.sort_by { |interest| interest.downcase }*", "
   end
 
+  def language_list
+    object.language_list.each { |lang| lang.capitalize! }.sort_by { |lang| lang }*", "
+  end
+
   def countries_collection
     User.countries.map do |name, value|
       [I18n.t(name, scope: :countries), name]
@@ -51,4 +55,22 @@ class UserDecorator < Draper::Decorator
 
   def new_interests
   end
+
+  def languages_collection
+    (
+      ["english", "polish", "norwegian", "german", "swedish", "french", "spanish", "japaneese"] + self.languages
+    ).each { |lang| lang.capitalize! }.uniq.sort_by { |lang| lang.downcase }
+  end
+
+  def languages
+    array = []
+    object.taggings.where(context: 'languages').each do |tagging|
+      array += [tagging.tag.name]
+    end
+    array.each { |lang| lang.capitalize! }
+  end
+
+  def new_languages
+  end
+
 end
