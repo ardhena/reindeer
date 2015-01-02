@@ -17,7 +17,7 @@ class ProfilesController < ApplicationController
   def update
     self.user = current_user
     if user.update(profile_params)
-      user.interest_list = params[:user][:interest_list]
+      user.interest_list = interests_array
       user.save
       redirect_to my_profile_path, notice: 'Your profile info was updated.'
     else
@@ -30,4 +30,7 @@ class ProfilesController < ApplicationController
       params.require(:user).permit(:first_name, :last_name, :sex, :birth, :country, :school, :city)
     end
 
+    def interests_array
+      params[:user][:new_interests].split(",") + params[:user][:interest_list]
+    end
 end

@@ -12,6 +12,7 @@
         = f.input :country, collection: user.countries_collection, selected: user.country
         = f.input :school, collection: user.schools_collection, selected: user.school
         = f.input :city
-        = f.input :interest_list, as: :check_boxes, collection: user.interests_collection, checked: user.interests
+        = f.input :interest_list, as: :check_boxes, collection: user.interests_collection, checked: user.interests, item_wrapper_tag: :span, item_wrapper_class: "col-md-4", label: false
+        = f.input :new_interests, as: :string, label: false, placeholder: 'Write other interests'
       .form-actions
         = f.button :submit, "Update", class: 'btn btn-header'

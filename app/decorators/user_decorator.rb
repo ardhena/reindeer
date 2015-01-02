@@ -32,7 +32,9 @@ class UserDecorator < Draper::Decorator
   end
 
   def interests_collection
-    ActsAsTaggableOn::Tag.all.joins(:taggings).where(taggings: { context: 'interests' } ).uniq.pluck(:name)
+    (
+      ["acting", "basketball", "computers", "cooking", "cycling", "dancing", "drawing", "electronics", "football", "foreign languages", "gaming", "gardening", "geocaching", "jogging", "movies", "music", "paintball", "photography", "reading", "singing", "sports", "video gaming", "writing"] + self.interests
+    ).uniq.sort_by { |interest| interest.downcase }
   end
 
   def interests
@@ -41,5 +43,8 @@ class UserDecorator < Draper::Decorator
       array += [tagging.tag.name]
     end
     array
+  end
+
+  def new_interests
   end
 end
