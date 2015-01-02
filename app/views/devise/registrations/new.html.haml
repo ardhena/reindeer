@@ -11,7 +11,7 @@
         = f.input :first_name
         = f.input :last_name
         = f.input :sex, collection: resource.decorate.sexes_collection
-        = f.input :birth, as: :date
+        = f.input :birth, as: :date, start_year: Date.today.year - 22, end_year: Date.today.year - 12, default: Date.parse("1995-01-01")
         = f.input :country, collection: resource.decorate.countries_collection
         = f.input :school, collection: resource.decorate.schools_collection
         = f.input :city
