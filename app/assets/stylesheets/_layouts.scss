@@ -27,3 +27,14 @@ footer.footer {
     padding-top: 10px;
   }
 }
+
+textarea#user_bio:focus, textarea#comment_comment:focus,
+select#user_sex:focus, select#user_birth_1i:focus,
+select#user_birth_2i:focus, select#user_birth_3i:focus,
+select#user_country:focus, select#user_school:focus,
+input[type="text"]:focus, input[type="password"]:focus,
+input[type="number"]:focus, input[type="email"]:focus {
+  border-color: $background;
+  box-shadow: 0 1px 1px $background inset, 0 0 8px $background;
+  outline: 0 none;
+}
