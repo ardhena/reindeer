@@ -9,15 +9,15 @@
           .form-inputs
             %h3 Change your email or password:
             = f.input :email, required: true
-            = f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false
+            = f.input :password, autocomplete: "off", hint: "Leave this field blank if you don't want to change your password.", required: false
             = f.input :password_confirmation, required: false
         .col-lg-6
           .form-inputs
             %h3 Confirm your changes:
-            = f.input :current_password, hint: "we need your current password to confirm your changes", required: true
+            = f.input :current_password, hint: "You need to provide your current password to confirm your changes.", required: true
           .form-actions
             = f.button :submit, "Update", class: 'btn btn-header'
           .buttons
             %span= link_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-header'
           .buttons
-            %span= link_to "Back", profile_path(current_user), class: 'btn btn-default'
+            %span= link_to "Back", my_profile_path, class: 'btn btn-default'

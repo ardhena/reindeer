@@ -13,9 +13,11 @@
         = f.input :school, collection: user.schools_collection, selected: user.school
         = f.input :city
         = f.input :interest_list, as: :check_boxes, collection: user.interests_collection, checked: user.interests, item_wrapper_tag: :span, item_wrapper_class: "col-md-4", label: false
-        = f.input :new_interests, as: :string, label: false, placeholder: 'Write other interests'
+        = f.input :new_interests, as: :string, label: false, placeholder: 'Other interests', hint: 'Use commas to separate interests.'
         = f.input :language_list, as: :check_boxes, collection: user.languages_collection, checked: user.languages, item_wrapper_tag: :span, item_wrapper_class: "col-md-4", label: false
-        = f.input :new_languages, as: :string, label: false, placeholder: 'Other known languages'
+        = f.input :new_languages, as: :string, label: false, placeholder: 'Other known languages', hint: 'Use commas to separate languages.'
         = f.input :bio, input_html: { rows: 10 }, hint: 'You can use html tags here if you want.'
       .form-actions
         = f.button :submit, "Update", class: 'btn btn-header'
+        .buttons
+          %span= link_to "Back", my_profile_path, class: 'btn btn-default'
