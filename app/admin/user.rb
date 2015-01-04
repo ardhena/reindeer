@@ -2,13 +2,21 @@ ActiveAdmin.register User do
   decorate_with UserDecorator
   menu label: 'Users'
 
+  filter :first_name
+  filter :last_name
+  filter :email
+  filter :sex, as: :select, collection: [ [:female, 0], [:male, 1] ]
+  filter :country, as: :select, collection: [ [:norway, 0], [:poland, 1] ]
+  filter :school, as: :select, collection: [ [:norwegian_school, 0], [:polish_high_school, 1], [:polish_technical_school, 2] ]
+  filter :city
+
   index do
     column :email
     column :first_name
     column :last_name
     column :sex
-    column :birth
     column :country
+    column :school
     actions defaults: false do |user|
       link_to "View", admin_panel_user_path(user)
     end

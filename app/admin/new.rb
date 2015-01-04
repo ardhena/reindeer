@@ -1,6 +1,9 @@
 ActiveAdmin.register New do
 
+  scope_to :current_admin
   permit_params :title, :content
+  filter :title
+  filter :content
 
   controller do
     def create
