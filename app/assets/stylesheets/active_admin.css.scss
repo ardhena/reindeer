@@ -9,19 +9,18 @@
 
 // Active Admin's got SASS!
 
-$body-background-color: #eeeeee;
-$primary-color: darkblue;
-$secondary-color: darkred;
-$text-color: #222222;
-$link-color: darkred;
+$body-background-color: #F3F1F2;
+$primary-color: #303F3A;
+$secondary-color: #577163;
+$text-color: #1D2925;
+$link-color: #8E6A4D;
 $section-header-text-color: $secondary-color;
-$current-menu-item-background: #222222;
-$hover-menu-item-background: #444444;
+$current-menu-item-background: #8E6A4D;
 $table-stripe-color: lighten($body-background-color, 4%);
 $table-selected-color: darken($body-background-color, 8%);
-$page-header-text-color: #dddddd;
-$secondary-gradient-start: #dddddd;
-$secondary-gradient-stop: darken(#dddddd, 10%);
+$page-header-text-color: #F3F1F2;
+$secondary-gradient-start: #F3F1F2;
+$secondary-gradient-stop: darken(#F3F1F2, 10%);
 
 @import "active_admin/mixins";
 @import "active_admin/base";
@@ -31,14 +30,14 @@ $secondary-gradient-stop: darken(#dddddd, 10%);
 //
 //   .status_tag { background: #6090DB; }
 
-body { 
+body {
   font-size: 11pt;
   font-family: Arial;
 }
 
-.section, .panel { background-color: #dddddd; }
+.section, .panel { background-color: #F3F1F2; }
 
-form fieldset.inputs { background-color: #dddddd; }
+form fieldset.inputs { background-color: #F3F1F2; }
 
 .cke_chrome {
   width: 79.5% !important;
