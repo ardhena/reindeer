@@ -1,0 +1,13 @@
+.page-header.profile h1 {
+  height: auto;
+  span.avatar img {
+    border: 2px solid $secondary;
+  }
+  span.name {
+    margin: 0;
+    padding: 0;
+    padding-left: 30px;
+    font-size: 30pt;
+    vertical-align: middle;
+  }
+}

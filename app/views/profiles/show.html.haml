@@ -1,7 +1,49 @@
-.page-header
+.page-header.profile
   %h1
-    = user.name
+    %span.avatar= image_tag user.gravatar_url(size: 100)
+    %span.name= user.name
     - if user == current_user
-      %span= link_to 'Edit public profile', edit_my_profile_path, class: 'btn btn-header'
-.tile.profile
-  = render 'public_info'
+      %span= link_to 'Account details', my_profile_path, class: 'btn btn-header'
+.row
+  .col-md-8
+    .tile.profile
+      .caption
+        %h2 Bio
+        %p= user.bio
+    .tile.profile
+      .caption
+        %h2 Interests
+        %p= user.interest_list
+    .tile.profile
+      .caption
+        %h2 Known languages
+        %p= user.language_list
+  .col-md-4
+    .tile.profile
+      .caption
+        %h2 Info
+        %table.table
+          %tr
+            %th.col-md-4 First name
+            %td.col-md-8= user.first_name
+          %tr
+            %th.col-md-4 Last name
+            %td.col-md-8= user.last_name
+          %tr
+            %th.col-md-4 Sex
+            %td.col-md-8= I18n.t("sexes.#{user.sex}")
+          %tr
+            %th.col-md-4 Birthday
+            %td.col-md-8= user.birthday
+          %tr
+            %th.col-md-4 Age
+            %td.col-md-8= user.age
+          %tr
+            %th.col-md-4 Country
+            %td.col-md-8= I18n.t("countries.#{user.country}")
+          %tr
+            %th.col-md-4 School
+            %td.col-md-8= I18n.t("schools.#{user.school}")
+          %tr
+            %th.col-md-4 City
+            %td.col-md-8= user.city
