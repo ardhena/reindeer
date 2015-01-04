@@ -1,0 +1,14 @@
+.label.label-default {
+  color: $secondary;
+  background-color: $highlight;
+  border: 1px solid $primary;
+  font-weight: normal;
+  font-size: 12pt;
+  line-height: 3.5;
+  margin: 5px;
+  padding: 10px;
+  &:hover {
+    color: $primary;
+    background-color: $secondary;
+  }
+}

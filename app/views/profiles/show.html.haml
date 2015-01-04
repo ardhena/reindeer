@@ -13,11 +13,13 @@
     .tile.profile
       .caption
         %h2 Interests
-        %p= user.interest_list
+        - user.interest_list_array.each do |interest|
+          %span.label.label-default= interest
     .tile.profile
       .caption
         %h2 Known languages
-        %p= user.language_list
+        - user.language_list_array.each do |language|
+          %span.label.label-default= language
   .col-md-4
     .tile.profile
       .caption

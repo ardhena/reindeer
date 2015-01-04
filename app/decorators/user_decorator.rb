@@ -17,8 +17,16 @@ class UserDecorator < Draper::Decorator
     object.interest_list.sort_by { |interest| interest.downcase }*", "
   end
 
+  def interest_list_array
+    object.interest_list.sort_by { |interest| interest.downcase }
+  end
+
   def language_list
     object.language_list.each { |lang| lang.capitalize! }.sort_by { |lang| lang }*", "
+  end
+
+  def language_list_array
+    object.language_list.each { |lang| lang.capitalize! }.sort_by { |lang| lang }
   end
 
   def bio
