@@ -1,0 +1,16 @@
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        %h2 Search
+      .panel-body
+        To do
+.page-header.profiles
+  %h2 View profiles
+.row
+  - users.each do |user|
+    .col-md-4
+      .tile
+        %span= image_tag user.gravatar_url(size: 50)
+        %span= user.name
+        %span= link_to 'View profile', profile_path(user)
