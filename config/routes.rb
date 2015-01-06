@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'my_profile', to: 'profiles#my_profile', as: 'my_profile'
   get 'my_profile/edit', to: 'profiles#edit', as: 'edit_my_profile'
   patch 'my_profile', to: 'profiles#update'
-  resources :profiles, only: [:show]
+  resources :profiles, only: [:show, :index]
 
   root 'pages#home'
   resources :articles, only: [:index, :show]

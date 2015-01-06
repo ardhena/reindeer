@@ -5,11 +5,20 @@
 				%img.navbar-brand{ src: 'https://dl.dropboxusercontent.com/u/52870658/reindeer_colour.png', class: 'logo' }
 				.navbar-brand Reindeer
 		#navbar.navbar-collapse.collapse
-			%ul.nav.navbar-nav
+			%ul.nav.navbar-nav.navbar-left
 				%li= link_to 'Home page', root_path
 				%li= link_to 'News', news_index_path
 				%li= link_to 'Articles', articles_path
 				%li= link_to 'About project', about_path
+				- if user_signed_in?
+					%li.dropdown
+						%a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+							Profiles
+							%span.caret
+						%ul.dropdown-menu{:role => "menu"}
+							%li= link_to 'Search profiles', profiles_path
+							%li.divider
+							%li= link_to 'My profile', profile_path(current_user)
 			%ul.nav.navbar-nav.navbar-right
 				- if user_signed_in?
 					%li.dropdown

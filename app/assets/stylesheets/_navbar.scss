@@ -11,7 +11,7 @@
 		&:hover {
 			background-color: $primary;
 			.navbar-brand {
-				color: $highlight;
+				color: $secondary;
 			}
 		}
 		.navbar-brand {
@@ -21,7 +21,8 @@
 	.navbar-collapse ul.nav.navbar-nav li a {
 		color: $primary-base;
 		&:hover {
-			color: $secondary;
+			background-color: $secondary;
+			color: $primary;
 		}
 	}
 }
@@ -50,7 +51,14 @@ ul.nav.navbar-nav.navbar-right li.dropdown a.dropdown-toggle {
 	}
 }
 
-ul.nav.navbar-nav.navbar-right li.dropdown.open a.dropdown-toggle {
+ul.nav.navbar-nav.navbar-left li.dropdown a.dropdown-toggle:hover {
+	background-color: $secondary;
+	color: $primary;
+}
+
+ul.nav.navbar-nav li.dropdown.open a.dropdown-toggle {
+	background-color: $secondary;
+	color: $primary;
 	.gravatar {
 		padding: 4px;
 		background-color: $secondary;
@@ -61,7 +69,7 @@ ul.nav.navbar-nav.navbar-right li.dropdown.open a.dropdown-toggle {
 	}
 }
 
-ul.nav.navbar-nav.navbar-right li.dropdown ul.dropdown-menu {
+ul.nav.navbar-nav li.dropdown ul.dropdown-menu {
 	text-align: center;
 	margin: 0;
 	padding: 5px;
