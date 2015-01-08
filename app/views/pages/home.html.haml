@@ -2,10 +2,14 @@
   = image_tag("https://dl.dropboxusercontent.com/u/52870658/reindeer_thumbnail_1.jpg")
   .caption
     %h1.header Welcome to Reindeer!
-    %p It is a website that connects students from Norway and Poland. You can find here people, chat with them and get to know their culture. It can motivate you to become more fluent and expierienced in English.
-    %p Additionaly, the main topic of our site is security and equality on the Internet. Teachers from Norway and Poland are constantly posting new articles about these issues.
-    %p Sign in to get as much as you can from Reindeer website. Feel free to leave us comments or advice. Invite your friends and enjoy with them all features of Reindeer.
-    %span= link_to 'Read more about this project', about_path, class: 'btn btn-default'
+    - unless user_signed_in?
+      %p Reindeer is a website that connects students from Norway and Poland from schools envolved in exchange program.
+      %p Students can find here friends from other country. We encourage all students and teachers to use only English for communication. For that reason, using Reindeer will give you an opportunity to get better in English. You can also get to know other culture by discovering their traditions and learning about their country.
+      %p Currenty Reindeer provides just a few features. Teachers can add news connected with the project, post articles on interesting topics. Students are able to comment news and articles, customize their profile by adding interests and personal info.
+      %p In near future other features will be unlocked. Students will be able to add friends, search for people with similar interests or from specific school or place. Friends will also have the abillity to chat with each other. There are also plans to create forum for students.
+      %p Additionaly, the main topic of our site is security and equality on the Internet. Teachers from Norway and Poland will be posting articles about these issues. Students can always learn something new and add comments to get involved others in discussion.
+      %p Sign in to get as much as you can from Reindeer. Invite your schoolmates and enjoy with them all of Reindeer.
+      %span= link_to 'Read more about this project', about_path, class: 'btn btn-default'
 
 .page-header
   %h2
