@@ -24,4 +24,6 @@ class User < ActiveRecord::Base
     now = Time.now.utc.to_date
     now.year - self.birth.year - ((now.month > self.birth.month || (now.month == self.birth.month && now.day >= self.birth.day)) ? 0 : 1)
   end
+
+  default_scope { order('last_name asc, first_name asc') }
 end

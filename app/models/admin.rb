@@ -5,4 +5,8 @@ class Admin < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :articles
   has_many :news, class_name: 'New'
+
+  scope :norway, -> { where(country: 'Norway') }
+  scope :poland, -> { where(country: 'Poland') }
+  default_scope { order('last_name asc, first_name asc') }
 end
