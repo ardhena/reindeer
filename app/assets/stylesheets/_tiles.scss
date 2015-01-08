@@ -16,3 +16,11 @@
     float: right;
   }
 }
+
+.to_profile a:hover {
+  text-decoration: none;
+  color: $secondary;
+  .tile {
+    background-color: $highlight;
+  }
+}

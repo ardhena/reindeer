@@ -9,8 +9,8 @@
   %h2 View profiles
 .row
   - users.each do |user|
-    .col-md-4
-      .tile
-        %span= image_tag user.gravatar_url(size: 50)
-        %span= user.name
-        %span= link_to 'View profile', profile_path(user)
+    .col-md-4.to_profile
+      = link_to profile_path(user) do
+        .tile
+          %span= image_tag user.gravatar_url(size: 50)
+          %span= user.name
