@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   include Gravtastic
   has_gravatar default: :identicon, size: 40
 
+  has_many :friendships
+  has_many :friends, through: :friendships
+
   acts_as_taggable_on :interests, :languages
 
   devise :database_authenticatable, :registerable,
