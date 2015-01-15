@@ -4,6 +4,10 @@ $(".comment-form").slideUp(500, function() {
   $(".comment-form").remove();
   $("#comments-list .tile.comment").first().slideDown(500);
 });
+var commentCount = $(".comments .page-header h2").children().first().children().last();
+var count = commentCount.text().split(" ")[0];
+count = parseInt(count, 10) + 1;
+commentCount.html(count + " comments");
 $(".page-header").after("<div class='alert alert-success'>Comment was created.</div>");
 $(".alert").on("click", function() {
   $(this).fadeOut(500, function() {
