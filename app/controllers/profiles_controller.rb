@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
 
 	expose_decorated(:user)
   expose_decorated(:users)
+  expose(:profile_search) { ProfileSearch.new(params[:profile_search]) }
 
 	def my_profile
     self.user = current_user
@@ -28,6 +29,7 @@ class ProfilesController < ApplicationController
   end
 
   def index
+    self.users = profile_search.results
   end
 
   private

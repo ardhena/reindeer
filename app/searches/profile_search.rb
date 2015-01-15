@@ -12,7 +12,7 @@ class ProfileSearch < Searchlight::Search
   end
 
   def search_city
-    search.where(city: city)
+    search.where('city ILIKE ?', "%#{city}%")
   end
 
   def search_sex
@@ -20,10 +20,10 @@ class ProfileSearch < Searchlight::Search
   end
 
   def search_first_name
-    search.where(first_name: first_name)
+    search.where('first_name ILIKE ?', "%#{first_name}%")
   end
 
   def search_last_name
-    search.where(last_name: last_name)
+    search.where('last_name ILIKE ?', "%#{last_name}%")
   end
 end

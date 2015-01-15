@@ -39,15 +39,33 @@ class UserDecorator < Draper::Decorator
     end
   end
 
+  def countries_collection_values
+    User.countries.map do |name, value|
+      [I18n.t(name, scope: :countries), value]
+    end
+  end
+
   def schools_collection
     User.schools.map do |name, value|
       [I18n.t(name, scope: :schools), name]
     end
   end
 
+  def schools_collection_values
+    User.schools.map do |name, value|
+      [I18n.t(name, scope: :schools), value]
+    end
+  end
+
   def sexes_collection
     User.sexes.map do |name, value|
       [I18n.t(name, scope: :sexes), name]
+    end
+  end
+
+  def sexes_collection_values
+    User.sexes.map do |name, value|
+      [I18n.t(name, scope: :sexes), value]
     end
   end
 
