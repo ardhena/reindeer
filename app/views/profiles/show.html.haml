@@ -4,6 +4,11 @@
     %span.name= user.name
     - if user == current_user
       %span= link_to 'Account details', my_profile_path, class: 'btn btn-header'
+    - unless current_user.has_friendship_with(user)
+      %span= link_to 'Send friend request', send_friend_request_path(friend_id: user.id), class: 'btn btn-default'
+    - else
+      - unless current_user.has_accepted_friendship_with(user)
+        %span= link_to 'Accept friend request', accept_friend_request_path(friend_id: user.id), class: 'btn btn-default'
 .row
   .col-md-8
     .tile.profile

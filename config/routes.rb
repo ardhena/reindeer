@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   resources :profiles, only: [:show, :index]
   post 'profiles', to: 'profiles#index'
 
+  get 'send_friend_request', to: 'friendships#send_request', as: 'send_friend_request'
+  get 'accept_friend_request', to: 'friendships#accept_request', as: 'accept_friend_request'
+
   root 'pages#home'
   resources :articles, only: [:index, :show]
   resources :news, only: [:index, :show]
