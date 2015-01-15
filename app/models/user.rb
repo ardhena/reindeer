@@ -28,5 +28,18 @@ class User < ActiveRecord::Base
     now.year - self.birth.year - ((now.month > self.birth.month || (now.month == self.birth.month && now.day >= self.birth.day)) ? 0 : 1)
   end
 
+  def friendship_with(user)
+    friendship ||= Friendship.where(user_id: self.id, friend_id: user.id) || Friendship.where(user_id: user.id, friend_id: self.id)
+    friendship.empty? ? nil : friendship.first
+  end
+
+  def has_friendship_with(user)
+    friendship_with(user).nil? ? false : true
+  end
+
+  def has_accepted_friendship_with(user)
+    friendship_with(user).nil? ? nil : friendship_with(user).accepted?
+  end
+
   default_scope { order('last_name asc, first_name asc') }
 end
