@@ -54,3 +54,16 @@
           %tr
             %th.col-md-4 City
             %td.col-md-8= user.city
+
+.row
+  .col-md-12
+    .tile.profile
+      .caption
+        %h2 Friends
+        .row
+          - user.friends.each do |friend|
+            .col-md-4.to_profile
+              = link_to profile_path(friend) do
+                .tile
+                  %span= image_tag friend.gravatar_url(size: 50)
+                  %span= friend.decorate.name
