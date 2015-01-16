@@ -4,6 +4,7 @@ class ProfilesController < ApplicationController
 	expose_decorated(:user)
   expose_decorated(:users)
   expose(:profile_search) { ProfileSearch.new(params[:profile_search]) }
+  expose_decorated(:friends, decorator: UserDecorator, collection: true) { user.accepted_friends }
 
 	def my_profile
     self.user = current_user
