@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
 	before_action :authenticate_user!
 
 	expose_decorated(:user)
-  expose_decorated(:users) {}
+  expose_decorated(:users)
   expose(:profile_search) { ProfileSearch.new(params[:profile_search]) }
   expose_decorated(:friends, decorator: UserDecorator, collection: true) { user.accepted_friends }
 
