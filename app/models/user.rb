@@ -47,6 +47,26 @@ class User < ActiveRecord::Base
     end
     array
   end
+  
+  def unaccepted_friends_initiated_by_self
+    array = []
+    self.unaccepted_friends.each do |friend|
+      if self.has_send_request_to?(friend)
+        array << friend
+      end
+    end
+    array
+  end
+  
+  def unaccepted_friends_requests # to be fixed
+    array = []
+    self.unaccepted_friends.each do |friend|
+      if friend.has_send_request_to?(self)
+        array << friend
+      end
+    end
+    array
+  end
 
   def has_no_friendship_with?(user)
     friendship ||= Friendship.where(user_id: self.id, friend_id: user.id) + Friendship.where(user_id: user.id, friend_id: self.id)
