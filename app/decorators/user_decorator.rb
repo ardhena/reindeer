@@ -1,5 +1,7 @@
 class UserDecorator < Draper::Decorator
 	delegate_all
+  
+  decorates_association :friends, with: UserDecorator
 
 	def name
 		"#{first_name} #{last_name}"

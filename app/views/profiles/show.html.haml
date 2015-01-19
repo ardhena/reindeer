@@ -70,3 +70,12 @@
                 .tile
                   %span= image_tag friend.gravatar_url(size: 50)
                   %span= friend.name
+        - if current_user == user
+          %h2 You have send friend requests to users:
+          .row
+            - user.unaccepted_friends.each do |friend|
+              .col-md-4.to_profile.to_profile_brown
+                = link_to profile_path(friend) do
+                  .tile
+                    %span= image_tag friend.gravatar_url(size: 50)
+                    %span= "#{friend.first_name} #{friend.last_name}"
