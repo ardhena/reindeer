@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   patch 'my_profile', to: 'profiles#update'
   resources :profiles, only: [:show, :index]
   post 'profiles', to: 'profiles#index'
-  resources :notifications, only: [:index]
+  get 'notifications/friend_requests', to: 'notifications#friend_requests'
 
   get 'send_friend_request', to: 'friendships#send_request', as: 'send_friend_request'
   get 'accept_friend_request', to: 'friendships#accept_request', as: 'accept_friend_request'
