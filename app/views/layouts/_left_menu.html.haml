@@ -1,0 +1,15 @@
+%ul.nav.navbar-nav.navbar-left
+  %li= link_to 'Home page', root_path
+  %li= link_to 'News', news_index_path
+  %li= link_to 'Articles', articles_path
+  %li= link_to 'About project', about_path
+  - if user_signed_in?
+    %li.dropdown
+      %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+        Community
+        %span.caret
+      %ul.dropdown-menu{:role => "menu"}
+        %li= link_to 'Search profiles', profiles_path
+        %li.divider
+        %li= link_to 'My friends', notifications_friend_requests_path
+        %li= link_to 'My public profile', profile_path(current_user)
