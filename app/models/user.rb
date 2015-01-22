@@ -38,30 +38,22 @@ class User < ActiveRecord::Base
     array
   end
 
-  def unaccepted_friends
+  def unaccepted_friends_requested_to_self
+    array = []
+    friendships ||= Friendship.where(friend_id: self.id)
+    friendships.each do |friendship|
+      user = User.find(friendship.user_id)
+      if self.has_request_from?(user)
+        array << user
+      end
+    end
+    array
+  end
+
+  def unaccepted_friends_requested_by_self
     array = []
     self.friends.each do |friend|
       if !self.is_fully_friends_with?(friend)
-        array << friend
-      end
-    end
-    array
-  end
-  
-  def unaccepted_friends_initiated_by_self
-    array = []
-    self.unaccepted_friends.each do |friend|
-      if self.has_send_request_to?(friend)
-        array << friend
-      end
-    end
-    array
-  end
-  
-  def unaccepted_friends_requests # to be fixed
-    array = []
-    self.unaccepted_friends.each do |friend|
-      if friend.has_send_request_to?(self)
         array << friend
       end
     end
