@@ -1,6 +1,7 @@
 .tile.comment
   .caption
     %h4= comment.title
+    %span.avatar= image_tag comment.user.gravatar_url(size: 20)
+    %span= link_to comment.author, profile_path(comment.user), class: 'author'
     %span.date= comment.date
-    %span.author= comment.author
     %p= comment.comment
