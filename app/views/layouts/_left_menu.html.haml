@@ -1,13 +1,34 @@
 %ul.nav.navbar-nav.navbar-left
-  %li= link_to 'Home page', root_path
-  %li= link_to 'News', news_index_path
-  %li= link_to 'Articles', articles_path
-  %li= link_to 'About project', about_path
+  - if current_page? root_path
+    %li= link_to 'Home page', root_path, class: 'active'
+  - else
+    %li= link_to 'Home page', root_path
+
+  - if current_page? news_index_path
+    %li= link_to 'News', news_index_path, class: 'active'
+  - else
+    %li= link_to 'News', news_index_path
+
+  - if current_page? articles_path
+    %li= link_to 'Articles', articles_path, class: 'active'
+  - else
+    %li= link_to 'Articles', articles_path
+
+  - if current_page? about_path
+    %li= link_to 'About project', about_path, class: 'active'
+  - else
+    %li= link_to 'About project', about_path
+
   - if user_signed_in?
     %li.dropdown
-      %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-        Community
-        %span.caret
+      - if params[:controller] == "profiles"
+        %a.active.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+          Community
+          %span.caret
+      - else
+        %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+          Community
+          %span.caret
       %ul.dropdown-menu{:role => "menu"}
         %li= link_to 'Search profiles', profiles_path
         %li.divider
