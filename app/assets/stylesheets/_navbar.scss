@@ -54,7 +54,7 @@ ul.nav.navbar-nav.navbar-left li.dropdown a.dropdown-toggle:hover {
 ul.nav.navbar-nav li.dropdown.open a.dropdown-toggle {
 	background-color: $highlight;
 	color: $primary-base;
-	.gravatar {
+	.gravatar, .gravatar:hover {
 		background-color: $highlight;
 		color: $primary-base;
 		img {	border: 1px solid $primary-base; }
@@ -85,10 +85,20 @@ ul.nav.navbar-nav li.dropdown ul.dropdown-menu {
 }
 
 .active {
-	background-color: rgba($secondary, 0.8);
+	background-color: rgba($secondary, 0.8) !important;
 	color: $primary-base !important;
 	&:hover {
 		background-color: rgba($primary, 0.8) !important;
 		color: $secondary !important;
+	}
+	.gravatar {
+		background-color: rgba($secondary, 0.8) !important;
+		color: $primary-base !important;
+		img {	border: 1px solid $primary-base !important; }
+		&:hover {
+			background-color: rgba($primary, 0.8) !important;
+			color: $secondary !important;
+			img {	border: 1px solid $secondary !important; }
+		}
 	}
 }
