@@ -1,5 +1,5 @@
 .row
-  .col-md-12
+  .col-md-4
     .panel.panel-default
       .panel-heading
         %h2 Search
@@ -14,13 +14,13 @@
             = f.input :last_name
           .form-actions
             = f.button :submit, "Search", class: 'btn btn-default'
-
-.page-header.profiles
-  %h2 View profiles
-.row
-  - users.each do |user|
-    .col-md-4.to_profile
-      = link_to profile_path(user) do
-        .tile
-          %span= image_tag user.gravatar_url(size: 50)
-          %span= user.name
+  .col-md-8
+    .page-header.profiles
+      %h2 Search results
+    .row
+      - users.each do |user|
+        .col-md-6.to_profile
+          = link_to profile_path(user) do
+            .tile
+              %span= image_tag user.gravatar_url(size: 50)
+              %span= user.name
