@@ -21,15 +21,6 @@
   text-decoration: none;
   color: $secondary;
   .tile {
-    background-color: $highlight;
-  }
-}
-
-.to_profile_brown a {
-  .tile { background-color: $highlight; }
-  color: $secondary;
-  &:hover {
-    .tile { background-color: $secondary; }
-    color: $primary;
+    background-color: rgba($highlight, 0.8);
   }
 }
