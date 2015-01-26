@@ -20,7 +20,9 @@
     .row
       - users.each do |user|
         .col-md-6.to_profile
-          = link_to profile_path(user) do
-            .tile
-              %span= image_tag user.gravatar_url(size: 50)
-              %span= user.name
+          .tile
+            = link_to profile_path(user) do
+              .link
+                %span= image_tag user.gravatar_url(size: 50)
+                %span.name= user.name
+            .actions= link_to 'Add to friends', '#', class: 'btn btn-default'

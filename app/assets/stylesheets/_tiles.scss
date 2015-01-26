@@ -17,10 +17,24 @@
   }
 }
 
-.to_profile a:hover {
-  text-decoration: none;
-  color: $secondary;
-  .tile {
-    background-color: rgba($highlight, 0.8);
+.to_profile .tile {
+  height: 84px;
+  a .link {
+    padding: 5px;
+    float: left;
+    .name {
+      padding-left: 10px;
+      padding-right: 20px;
+    }
+    &:hover {
+      color: $highlight;
+    }
+  }
+  .actions {
+    float: right;
+    .btn {
+      margin-top: 13px;
+      margin-bottom: 13px;
+    }
   }
 }
