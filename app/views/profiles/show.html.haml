@@ -8,7 +8,7 @@
       - if current_user.has_no_friendship_with?(user)
         %span= link_to 'Send friend request', send_friend_request_path(friend_id: user.id), class: 'btn btn-default'
       - if current_user.has_send_request_to?(user)
-        %span.btn.btn-default You have already send friend request.
+        %span.btn.btn-default You have already sent friend request.
       - if current_user.has_request_from?(user)
         %span= link_to 'Accept friend request', accept_friend_request_path(friend_id: user.id), class: 'btn btn-default'
 

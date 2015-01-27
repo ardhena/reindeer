@@ -25,4 +25,12 @@
               .link
                 %span= image_tag user.gravatar_url(size: 50)
                 %span.name= user.name
-            .actions= link_to 'Add to friends', '#', class: 'btn btn-default'
+            .actions
+              - if current_user.has_no_friendship_with?(user)
+                = link_to 'Add to friends', send_friend_request_path(friend_id: user.id), class: 'btn btn-default'
+              - if current_user.has_send_request_to?(user)
+                %span Request sent
+              - if current_user.has_request_from?(user)
+                = link_to 'Accept as friend', accept_friend_request_path(friend_id: user.id), class: 'btn btn-default'
+              - if current_user.is_fully_friends_with?(user)
+                %span Already friends
