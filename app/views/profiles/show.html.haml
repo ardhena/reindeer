@@ -68,7 +68,8 @@
     .row
       - friends.each do |friend|
         .col-md-4.to_profile
-          = link_to profile_path(friend) do
-            .tile
-              %span= image_tag friend.gravatar_url(size: 50)
-              %span= friend.name
+          .tile
+            = link_to profile_path(friend) do
+              .link
+                %span= image_tag friend.gravatar_url(size: 50)
+                %span.name= friend.name
