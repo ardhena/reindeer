@@ -13,6 +13,8 @@
             = f.input :sex, collection: current_user.decorate.sexes_collection_values, required: false
             = f.input :first_name, required: false
             = f.input :last_name, required: false
+            = f.input :interests, collection: current_user.decorate.all_interests_collection, as: :check_boxes, required: false
+            = f.input :languages, collection: current_user.decorate.all_languages_collection, as: :check_boxes, required: false
           .form-actions
             = f.button :submit, "Search", class: 'btn btn-default'
   .col-md-8

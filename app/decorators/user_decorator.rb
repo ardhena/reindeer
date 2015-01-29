@@ -1,6 +1,6 @@
 class UserDecorator < Draper::Decorator
 	delegate_all
-  
+
   decorates_association :friends, with: UserDecorator
 
 	def name
@@ -88,6 +88,10 @@ class UserDecorator < Draper::Decorator
   def new_interests
   end
 
+  def all_interests_collection
+    ActsAsTaggableOn::Tagging.all.where(context: 'interests').map{ |tagging| tagging.tag.name }.sort_by{ |name| name.downcase }.uniq
+  end
+
   def languages_collection
     (
       ["english", "polish", "norwegian", "german", "swedish", "french", "spanish", "japaneese"] + self.languages
@@ -105,4 +109,7 @@ class UserDecorator < Draper::Decorator
   def new_languages
   end
 
+  def all_languages_collection
+    ActsAsTaggableOn::Tagging.all.where(context: 'languages').map{ |tagging| tagging.tag.name }.sort_by{ |name| name.downcase }.uniq
+  end
 end
