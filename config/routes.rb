@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   get 'my_profile', to: 'profiles#my_profile', as: 'my_profile'
+  get 'my_profile/friends', to: 'profiles#friends'
   get 'my_profile/edit', to: 'profiles#edit', as: 'edit_my_profile'
   patch 'my_profile', to: 'profiles#update'
   resources :profiles, only: [:show, :index]

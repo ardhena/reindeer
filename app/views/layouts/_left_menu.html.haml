@@ -35,7 +35,10 @@
         - else
           %li= link_to 'Search for friends', profiles_path
         %li.divider
-        %li= link_to 'My friends', '#'
+        - if current_page? my_profile_friends_path
+          %li= link_to 'My friends', my_profile_friends_path, class: 'active'
+        - else
+          %li= link_to 'My friends', my_profile_friends_path
         - if current_page? profile_path(current_user)
           %li= link_to 'My public profile', profile_path(current_user), class: 'active'
         - else
