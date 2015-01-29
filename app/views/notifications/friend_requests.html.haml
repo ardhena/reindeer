@@ -2,39 +2,54 @@
   .col-md-6
     .page-header
       %h2 Requests waiting for your acceptance
-    .row
-      - unaccepted_requests_to_current_user.each do |friend|
-        .col-md-12.to_profile
-          .tile
-            = link_to profile_path(friend) do
-              .link
-                %span= image_tag friend.gravatar_url(size: 50)
-                %span.name= friend.name
-            .actions
-              - if current_user.has_request_from?(friend)
-                = link_to 'Accept as friend', accept_friend_request_path(friend_id: friend.id), class: 'btn btn-default'
+    - if unaccepted_requests_to_current_user.count == 0
+      .tile
+        .caption
+          There are no unaccepted requests for you to accept.
+    - else
+      .row
+        - unaccepted_requests_to_current_user.each do |friend|
+          .col-md-12.to_profile
+            .tile
+              = link_to profile_path(friend) do
+                .link
+                  %span= image_tag friend.gravatar_url(size: 50)
+                  %span.name= friend.name
+              .actions
+                - if current_user.has_request_from?(friend)
+                  = link_to 'Accept as friend', accept_friend_request_path(friend_id: friend.id), class: 'btn btn-default'
 
   .col-md-6
     .page-header
       %h2 Pending requests send by you
-    .row
-      - unaccepted_requests_from_current_user.each do |friend|
-        .col-md-6.to_profile
-          .tile
-            = link_to profile_path(friend) do
-              .link
-                %span= image_tag friend.gravatar_url(size: 50)
-                %span.name= friend.name
+    - if unaccepted_requests_from_current_user.count == 0
+      .tile
+        .caption
+          There are no pending friend requests from you.
+    - else
+      .row
+        - unaccepted_requests_from_current_user.each do |friend|
+          .col-md-6.to_profile
+            .tile
+              = link_to profile_path(friend) do
+                .link
+                  %span= image_tag friend.gravatar_url(size: 50)
+                  %span.name= friend.name
 
 .row
   .col-md-12
     .page-header
       %h2 Accepted requests
-    .row
-      - accepted_friends.each do |friend|
-        .col-md-4.to_profile
-          .tile
-            = link_to profile_path(friend) do
-              .link
-                %span= image_tag friend.gravatar_url(size: 50)
-                %span.name= friend.name
+    - if accepted_friends.count == 0
+      .tile
+        .caption
+          You have no friends.
+    - else
+      .row
+        - accepted_friends.each do |friend|
+          .col-md-4.to_profile
+            .tile
+              = link_to profile_path(friend) do
+                .link
+                  %span= image_tag friend.gravatar_url(size: 50)
+                  %span.name= friend.name

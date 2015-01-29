@@ -33,10 +33,22 @@
     %td= user.city
   %tr
     %th Interests
-    %td= user.interest_list
+    %td
+      - if user.interests.count == 0
+        No interests specified.
+      - else
+        = user.interest_list
   %tr
     %th Known languages
-    %td= user.language_list
+    %td
+      - if user.languages.count == 0
+        No languages specified.
+      - else
+        = user.language_list
   %tr
     %th Bio
-    %td= user.bio
+    %td
+      - if user.bio.present?
+        = user.bio
+      - else
+        No bio written.

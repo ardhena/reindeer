@@ -1,11 +1,16 @@
 .page-header
   %h1 Your friends
 
-.row
-  - current_user_friends.each do |friend|
-    .col-md-4.to_profile
-      .tile
-        = link_to profile_path(friend) do
-          .link
-            %span= image_tag friend.gravatar_url(size: 50)
-            %span.name= friend.name
+- if current_user_friends.count == 0
+  .tile
+    .caption
+      You have no friends.
+- else
+  .row
+    - current_user_friends.each do |friend|
+      .col-md-4.to_profile
+        .tile
+          = link_to profile_path(friend) do
+            .link
+              %span= image_tag friend.gravatar_url(size: 50)
+              %span.name= friend.name

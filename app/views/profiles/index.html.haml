@@ -18,20 +18,25 @@
   .col-md-8
     .page-header.profiles
       %h2 Search results
-    .row
-      - users.each do |user|
-        .col-md-6.to_profile
-          .tile
-            = link_to profile_path(user) do
-              .link
-                %span= image_tag user.gravatar_url(size: 50)
-                %span.name= user.name
-            .actions
-              - if current_user.has_no_friendship_with?(user)
-                = link_to 'Add to friends', send_friend_request_path(friend_id: user.id), class: 'btn btn-default'
-              - if current_user.has_send_request_to?(user)
-                %span Request sent
-              - if current_user.has_request_from?(user)
-                = link_to 'Accept as friend', accept_friend_request_path(friend_id: user.id), class: 'btn btn-default'
-              - if current_user.is_fully_friends_with?(user)
-                %span Already friends
+    - if users.count == 0
+      .tile
+        .caption
+          No profiles found.
+    - else
+      .row
+        - users.each do |user|
+          .col-md-6.to_profile
+            .tile
+              = link_to profile_path(user) do
+                .link
+                  %span= image_tag user.gravatar_url(size: 50)
+                  %span.name= user.name
+              .actions
+                - if current_user.has_no_friendship_with?(user)
+                  = link_to 'Add to friends', send_friend_request_path(friend_id: user.id), class: 'btn btn-default'
+                - if current_user.has_send_request_to?(user)
+                  %span Request sent
+                - if current_user.has_request_from?(user)
+                  = link_to 'Accept as friend', accept_friend_request_path(friend_id: user.id), class: 'btn btn-default'
+                - if current_user.is_fully_friends_with?(user)
+                  %span Already friends

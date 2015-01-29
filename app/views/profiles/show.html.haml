@@ -17,17 +17,26 @@
     .tile.profile
       .caption
         %h2 Bio
-        %p= user.bio
+        - if user.bio.present?
+          %p= user.bio
+        - else
+          %p There is no bio written.
     .tile.profile
       .caption
         %h2 Interests
-        - user.interest_list_array.each do |interest|
-          %span.label.label-default= interest
+        - if user.interest_list_array.count == 0
+          %p There are no interests specified.
+        - else
+          - user.interest_list_array.each do |interest|
+            %span.label.label-default= interest
     .tile.profile
       .caption
         %h2 Known languages
-        - user.language_list_array.each do |language|
-          %span.label.label-default= language
+        - if user.language_list_array.count == 0
+          %p There are no languages specified.
+        - else
+          - user.language_list_array.each do |language|
+            %span.label.label-default= language
   .col-md-4
     .tile.profile
       .caption
@@ -65,11 +74,16 @@
         = "Friends (#{user_friends.count})"
         - if current_user == user
           %span= link_to 'Friend requests', notifications_friend_requests_path, class: 'btn btn-header'
-    .row
-      - user_friends.each do |friend|
-        .col-md-4.to_profile
-          .tile
-            = link_to profile_path(friend) do
-              .link
-                %span= image_tag friend.gravatar_url(size: 50)
-                %span.name= friend.name
+    - if user_friends.count == 0
+      .tile
+        .caption
+          You have no friends.
+    - else
+      .row
+        - user_friends.each do |friend|
+          .col-md-4.to_profile
+            .tile
+              = link_to profile_path(friend) do
+                .link
+                  %span= image_tag friend.gravatar_url(size: 50)
+                  %span.name= friend.name
