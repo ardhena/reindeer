@@ -1,7 +1,7 @@
 class ProfileSearch < Searchlight::Search
   search_on User.all
 
-  searches :first_name, :last_name, :sex, :country, :school, :city
+  searches :first_name, :last_name, :sex, :country, :school, :city, :friends
 
   def search_country
     search.where(country: country)

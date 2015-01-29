@@ -31,6 +31,14 @@ class ProfilesController < ApplicationController
 
   def index
     self.users = profile_search.results.where.not(id: current_user.id)
+    if params[:profile_search].present?
+      friends = params[:profile_search][:friends]
+      unless friends.to_bool
+        self.users -= current_user.accepted_friends
+      end
+    else
+      self.users -= current_user.accepted_friends
+    end
   end
 
   private

@@ -6,12 +6,13 @@
       .panel-body
         = simple_form_for profile_search, url: profiles_path do |f|
           .form-inputs
-            = f.input :country, collection: current_user.decorate.countries_collection_values
-            = f.input :school, collection: current_user.decorate.schools_collection_values
-            = f.input :city
-            = f.input :sex, collection: current_user.decorate.sexes_collection_values
-            = f.input :first_name
-            = f.input :last_name
+            = f.input :friends, label: 'Search through friends', as: :radio_buttons, checked: false, required: false
+            = f.input :country, collection: current_user.decorate.countries_collection_values, required: false
+            = f.input :school, collection: current_user.decorate.schools_collection_values, required: false
+            = f.input :city, required: false
+            = f.input :sex, collection: current_user.decorate.sexes_collection_values, required: false
+            = f.input :first_name, required: false
+            = f.input :last_name, required: false
           .form-actions
             = f.button :submit, "Search", class: 'btn btn-default'
   .col-md-8
