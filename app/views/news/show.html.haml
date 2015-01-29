@@ -15,5 +15,10 @@
         %span= link_to 'Add comment', new_comment_path(comment: { commentable_type: object, commentable_id: new }), remote: true, class: 'btn btn-header add-comment'
   #comment-form
   #comments-list
-    - comments.each do |comment|
-      = render 'comments/comment', comment: comment
+    - if comments.count == 0
+      .tile
+        .caption
+          There are no comments to show.
+    - else
+      - comments.each do |comment|
+        = render 'comments/comment', comment: comment
