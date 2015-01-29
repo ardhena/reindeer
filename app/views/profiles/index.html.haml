@@ -6,7 +6,7 @@
       .panel-body
         = simple_form_for profile_search, url: profiles_path do |f|
           .form-inputs
-            = f.input :friends, label: 'Search through friends', as: :radio_buttons, checked: false, required: false
+            = f.input :friends, label: 'Search through friends', as: :radio_buttons, checked: params[:profile_search] ? params[:profile_search][:friends] : false, required: false
             = f.input :country, collection: current_user.decorate.countries_collection_values, required: false
             = f.input :school, collection: current_user.decorate.schools_collection_values, required: false
             = f.input :city, required: false
