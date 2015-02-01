@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
 
 	expose_decorated(:user)
   expose_decorated(:users)
-  expose(:profile_search) { ProfileSearch.new(params[:profile_search]) }
+  expose(:profile_search) { ProfileSearch.new(profile_search_params) }
   expose_decorated(:user_friends, decorator: UserDecorator, collection: true) { user.accepted_friends }
   expose_decorated(:current_user_friends, decorator: UserDecorator, collection: true) { current_user.accepted_friends }
 
@@ -60,5 +60,17 @@ class ProfilesController < ApplicationController
       (
         params[:user][:new_languages].split(",") + params[:user][:language_list]
       ).each { |lang| lang.downcase! }.uniq
+    end
+
+    def profile_search_params
+      if params[:profile_search].present?
+        params[:profile_search]
+          .merge( { tags: [
+            params[:profile_search][:interests],
+            params[:profile_search][:languages]
+          ] } )
+      else
+        []
+      end
     end
 end

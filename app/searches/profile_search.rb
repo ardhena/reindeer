@@ -1,7 +1,7 @@
 class ProfileSearch < Searchlight::Search
   search_on User.all
 
-  searches :first_name, :last_name, :sex, :country, :school, :city, :friends
+  searches :first_name, :last_name, :sex, :country, :school, :city, :friends, :tags, :interests, :languages
 
   def search_country
     search.where(country: country)
@@ -25,5 +25,19 @@ class ProfileSearch < Searchlight::Search
 
   def search_last_name
     search.where('last_name ILIKE ?', "%#{last_name}%")
+  end
+
+  def search_tags
+    interest_tag = ActsAsTaggableOn::Tag.find_by(name: tags[0])
+    language_tag = ActsAsTaggableOn::Tag.find_by(name: tags[1])
+    if interest_tag && language_tag
+      search.joins(:taggings).where( taggings: { context: 'interests', tag_id: interest_tag.id } ) || search.joins(:taggings).where( taggings: { context: 'languages', tag_id: language_tag.id } )
+    elsif interest_tag
+      search.joins(:taggings).where( taggings: { context: 'interests', tag_id: interest_tag.id } )
+    elsif language_tag
+      search.joins(:taggings).where( taggings: { context: 'languages', tag_id: language_tag.id } )
+    else
+      search.all
+    end
   end
 end
