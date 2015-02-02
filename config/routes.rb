@@ -17,6 +17,9 @@ Rails.application.routes.draw do
 
   get 'send_friend_request', to: 'friendships#send_request', as: 'send_friend_request'
   get 'accept_friend_request', to: 'friendships#accept_request', as: 'accept_friend_request'
+  get 'cancel_friend_request', to: 'friendships#cancel_request', as: 'cancel_friend_request'
+  get 'discard_friend_request', to: 'friendships#discard_request', as: 'discard_friend_request'
+  get 'delete_friend', to: 'friendships#delete_friend', as: 'delete_friend'
 
   root 'pages#home'
   resources :articles, only: [:index, :show]

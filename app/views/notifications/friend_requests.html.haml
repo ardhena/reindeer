@@ -16,8 +16,8 @@
                   %span= image_tag friend.gravatar_url(size: 50)
                   %span.name= friend.name
               .actions
-                - if current_user.has_request_from?(friend)
-                  = link_to 'Accept as friend', accept_friend_request_path(friend_id: friend.id), class: 'btn btn-default'
+                = link_to 'Accept as friend', accept_friend_request_path(friend_id: friend.id), class: 'btn btn-default'
+                = link_to 'Discard request', discard_friend_request_path(friend_id: friend.id), class: 'btn btn-header'
 
   .col-md-6
     .page-header
@@ -29,12 +29,14 @@
     - else
       .row
         - unaccepted_requests_from_current_user.each do |friend|
-          .col-md-6.to_profile
+          .col-md-12.to_profile
             .tile
               = link_to profile_path(friend) do
                 .link
                   %span= image_tag friend.gravatar_url(size: 50)
                   %span.name= friend.name
+              .actions
+                = link_to 'Cancel friend request', cancel_friend_request_path(friend_id: friend.id), class: 'btn btn-header'
 
 .row
   .col-md-12
@@ -53,3 +55,5 @@
                 .link
                   %span= image_tag friend.gravatar_url(size: 50)
                   %span.name= friend.name
+              .actions
+                = link_to 'Delete friend', delete_friend_path(friend_id: friend.id), class: 'btn btn-header'
