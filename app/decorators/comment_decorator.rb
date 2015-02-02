@@ -3,7 +3,7 @@ class CommentDecorator < Draper::Decorator
   decorates_association :user
 
   def date
-    object.created_at.to_formatted_s(:db)
+    object.created_at.in_time_zone.strftime("%m-%d-%y %H:%M")
   end
 
   def author
