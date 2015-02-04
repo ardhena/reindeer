@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   patch 'my_profile', to: 'profiles#update'
   resources :profiles, only: [:show, :index]
   post 'profiles', to: 'profiles#index'
+
   get 'notifications/friend_requests', to: 'notifications#friend_requests'
 
   get 'send_friend_request', to: 'friendships#send_request', as: 'send_friend_request'
@@ -20,6 +21,10 @@ Rails.application.routes.draw do
   get 'cancel_friend_request', to: 'friendships#cancel_request', as: 'cancel_friend_request'
   get 'discard_friend_request', to: 'friendships#discard_request', as: 'discard_friend_request'
   get 'delete_friend', to: 'friendships#delete_friend', as: 'delete_friend'
+
+  get 'message_box', to: 'message_box#index'
+  get 'inbox', to: 'message_box#inbox'
+  get 'outbox', to: 'message_box#outbox'
 
   root 'pages#home'
   resources :articles, only: [:index, :show]
