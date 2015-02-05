@@ -13,10 +13,16 @@
       .tile
         .caption
           %h3
-            %span= image_tag message.sent_messageable.gravatar_url(size: 50)
-            %span= "#{message.sent_messageable.first_name} #{message.sent_messageable.last_name}"
+            - if message.sent_messageable.id == current_user.id
+              %span= image_tag message.received_messageable.gravatar_url(size: 50)
+              %span= message.received_messageable.decorate.name
+            - else
+              %span= image_tag message.sent_messageable.gravatar_url(size: 50)
+              %span= message.sent_messageable.decorate.name
             %span= "(#{message.conversation.count})"
-          %span.date= message.created_at
+          %span.avatar= image_tag message.sent_messageable.gravatar_url(size: 20)
+          %span.author= message.sent_messageable.decorate.name
+          %span.date= "sent on #{message.date}:"
           %p= message.body
           %span= link_to 'View conversation', message_path(message), class: 'btn btn-default'
           %span= link_to 'Reply', '#', class: 'btn btn-header'

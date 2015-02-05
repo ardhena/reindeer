@@ -1,0 +1,20 @@
+.row
+  .col-md-12
+    .page-header
+      %h1= "Conversation with #{conversationist.name}"
+
+.row
+  .col-md-2
+    .tile
+      .caption
+        %span= link_to 'Inbox', messages_path, class: 'btn btn-default'
+        %span= link_to 'Reply', '#', class: 'btn btn-header'
+  .col-md-10
+    - conversation.each do |message|
+      .tile
+        .caption
+          %h3
+            %span= image_tag message.sent_messageable.gravatar_url(size: 50)
+            %span= message.sent_messageable.decorate.name
+          %span.date= message.date
+          %p= message.body
