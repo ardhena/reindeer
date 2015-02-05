@@ -22,9 +22,7 @@ Rails.application.routes.draw do
   get 'discard_friend_request', to: 'friendships#discard_request', as: 'discard_friend_request'
   get 'delete_friend', to: 'friendships#delete_friend', as: 'delete_friend'
 
-  get 'message_box', to: 'message_box#index'
-  get 'inbox', to: 'message_box#inbox'
-  get 'outbox', to: 'message_box#outbox'
+  resources :messages, only: [:index, :show, :new]
 
   root 'pages#home'
   resources :articles, only: [:index, :show]

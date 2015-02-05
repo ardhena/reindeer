@@ -1,0 +1,23 @@
+.row
+  .col-md-12
+    .page-header
+      %h1 Message conversations
+
+.row
+  .col-md-2
+    .tile
+      .caption
+        = link_to 'New message', new_message_path, class: 'btn btn-header'
+  .col-md-10
+    - messages_in_conversations.each do |message|
+      .tile
+        .caption
+          %h3
+            %span= image_tag message.sent_messageable.gravatar_url(size: 50)
+            %span= "#{message.sent_messageable.first_name} #{message.sent_messageable.last_name}"
+            %span= "(#{message.conversation.count})"
+          %span.date= message.created_at
+          %p= message.body
+          %span= link_to 'View conversation', message_path(message), class: 'btn btn-default'
+          %span= link_to 'Reply', '#', class: 'btn btn-header'
+
