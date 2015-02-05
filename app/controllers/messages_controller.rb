@@ -23,8 +23,8 @@ class MessagesController < ApplicationController
   def create
     receiver = User.find(message_params[:received_messageable_id])
     sender = SendMessage.new(current_user, receiver, message_params[:body], message_params[:ancestry])
-    sender.send_message
-    redirect_to messages_path
+    message = sender.send_message
+    redirect_to message_path(message), notice: 'Message has been sent.'
   end
 
   private
