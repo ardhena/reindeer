@@ -22,13 +22,13 @@ class MessagesController < ApplicationController
 
   def create
     receiver = User.find(message_params[:received_messageable_id])
-    sender = SendMessage.new(current_user, receiver, message_params[:body])
+    sender = SendMessage.new(current_user, receiver, message_params[:body], message_params[:ancestry])
     sender.send_message
     redirect_to messages_path
   end
 
   private
     def message_params
-      params.require(:acts_as_messageable_message).permit(:body, :received_messageable_id)
+      params.require(:acts_as_messageable_message).permit(:body, :received_messageable_id, :ancestry)
     end
 end
