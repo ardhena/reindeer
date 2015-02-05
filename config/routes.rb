@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get 'discard_friend_request', to: 'friendships#discard_request', as: 'discard_friend_request'
   get 'delete_friend', to: 'friendships#delete_friend', as: 'delete_friend'
 
-  resources :messages, only: [:index, :show, :new]
+  resources :messages, only: [:index, :show, :new, :create]
 
   root 'pages#home'
   resources :articles, only: [:index, :show]

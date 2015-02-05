@@ -9,6 +9,7 @@ class MessagesController < ApplicationController
       conversation.first.sent_messageable
     end
   end
+  expose(:message) { ActsAsMessageable::Message.new }
 
   def index
   end
@@ -17,5 +18,9 @@ class MessagesController < ApplicationController
   end
 
   def new
+  end
+
+  def create
+    redirect_to messages_path
   end
 end
