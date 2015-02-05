@@ -3,7 +3,7 @@ class SendMessage
     @from = from    # User
     @to = to        # User
     @body = body    # text
-    @reply = reply  # message_to_reply_to
+    @reply = ActsAsMessageable::Message.find(reply)  # message_to_reply_to
   end
 
   def send_message

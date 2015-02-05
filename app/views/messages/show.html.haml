@@ -1,14 +1,10 @@
 .row
   .col-md-12
     .page-header
-      %h1= "Conversation with #{conversationist.name}"
+      %h1
+        = "Conversation with #{conversationist.name}"
+        = link_to 'Inbox', messages_path, class: 'btn btn-default'
 
-.row
-  .col-md-2
-    .tile
-      .caption
-        %p= link_to 'Inbox', messages_path, class: 'btn btn-default'
-  .col-md-10
     .panel.panel-default
       .panel-heading
         %h2 Reply
