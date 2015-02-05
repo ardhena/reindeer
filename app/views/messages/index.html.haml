@@ -18,5 +18,5 @@
           %span.avatar= image_tag message.sent_messageable.gravatar_url(size: 20)
           %span.author= message.sent_messageable.decorate.name
           %span.date= "sent on #{message.date}:"
-          %p= message.body
+          %p= truncate_html(message.body, length: 100)
           %span= link_to 'View conversation', message_path(message), class: 'btn btn-default'
