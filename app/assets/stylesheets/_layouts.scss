@@ -38,3 +38,8 @@ input[type="number"]:focus, input[type="email"]:focus {
   box-shadow: 0 1px 1px $background inset, 0 0 8px $background;
   outline: 0 none;
 }
+
+.badge {
+  background-color: $secondary;
+  color: $primary;
+}

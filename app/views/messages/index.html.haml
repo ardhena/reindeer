@@ -16,7 +16,14 @@
               %span= message.sent_messageable.decorate.name
             %span= "(#{message.conversation.count})"
           %span.avatar= image_tag message.sent_messageable.gravatar_url(size: 20)
-          %span.author= message.sent_messageable.decorate.name
-          %span.date= "sent on #{message.date}:"
-          %p= truncate_html(message.body, length: 100)
-          %span= link_to 'View conversation', message_path(message), class: 'btn btn-default'
+          - if !message.opened && message.sent_messageable_id != current_user.id
+            %b
+              %span.author= message.sent_messageable.decorate.name
+              %span.date= "sent on #{message.date}:"
+              %p= truncate_html(message.body, length: 100)
+              %span= link_to 'View conversation', message_path(message), class: 'btn btn-default'
+          - else
+            %span.author= message.sent_messageable.decorate.name
+            %span.date= "sent on #{message.date}:"
+            %p= truncate_html(message.body, length: 100)
+            %span= link_to 'View conversation', message_path(message), class: 'btn btn-default'

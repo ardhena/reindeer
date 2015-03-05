@@ -89,5 +89,9 @@ class User < ActiveRecord::Base
     end
   end
 
+  def new_messages
+    self.messages.where(opened: false)
+  end
+
   default_scope { order('last_name asc, first_name asc') }
 end

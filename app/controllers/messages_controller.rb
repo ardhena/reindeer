@@ -15,6 +15,11 @@ class MessagesController < ApplicationController
   end
 
   def show
+    conversation.each do |message|
+      if message.received_messageable_id == current_user.id
+        message.update(opened: true)
+      end
+    end
   end
 
   def new
