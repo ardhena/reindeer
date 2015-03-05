@@ -93,5 +93,9 @@ class User < ActiveRecord::Base
     self.messages.where(opened: false)
   end
 
+  def new_friend_requests
+    unaccepted_friends_requested_to_self
+  end
+
   default_scope { order('last_name asc, first_name asc') }
 end

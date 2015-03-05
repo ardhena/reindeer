@@ -23,9 +23,15 @@
               Private messages
               %span.badge= new_messages.count
         - if current_page? notifications_friend_requests_path
-          %li= link_to 'Friend requests', notifications_friend_requests_path, class: 'active'
+          %li
+            = link_to notifications_friend_requests_path, class: 'active' do
+              Friend requests
+              %span.badge= new_friend_requests.count
         - else
-          %li= link_to 'Friend requests', notifications_friend_requests_path
+          %li
+            = link_to notifications_friend_requests_path do
+              Friend requests
+              %span.badge= new_friend_requests.count
         %li.divider
         %li= link_to 'My public profile', profile_path(current_user)
         - if current_page? my_profile_path
