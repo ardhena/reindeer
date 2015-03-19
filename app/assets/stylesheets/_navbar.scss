@@ -102,3 +102,37 @@ ul.nav.navbar-nav li.dropdown ul.dropdown-menu {
 		}
 	}
 }
+
+.pending {
+	background-color: rgba($primary, 0.8) !important;
+	color: $secondary !important;
+	&:hover {
+		background-color: rgba($secondary, 0.8) !important;
+		color: $primary-base !important;
+		.badge {
+			background-color: $primary-base;
+			color: $secondary;
+		}
+	}
+	.gravatar {
+		background-color: rgba($primary, 0.8) !important;
+		color: $secondary !important;
+		img {	border: 1px solid $secondary !important; }
+		&:hover {
+			background-color: rgba($secondary, 0.8) !important;
+			color: $primary-base !important;
+			img {	border: 1px solid $primary-base !important; }
+		}
+	}
+}
+
+.pending_notification_count {
+	font-family: $font;
+	font-size: 16pt;
+	margin-right: 10px;
+}
+
+.notification_count {
+	font-family: $font;
+	font-size: 12pt;
+}

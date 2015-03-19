@@ -90,7 +90,7 @@ class User < ActiveRecord::Base
   end
 
   def new_messages
-    self.messages.where(opened: false)
+    self.messages.where(opened: false).where(received_messageable_id: id)
   end
 
   def new_friend_requests

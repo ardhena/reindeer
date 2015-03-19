@@ -1,37 +1,45 @@
 %ul.nav.navbar-nav.navbar-right
   - if user_signed_in?
     %li.dropdown
-      - if current_page?(notifications_friend_requests_path) || current_page?(my_profile_path) || params[:controller] == 'messages'
-        %a.active.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+      - if current_user.new_messages.count != 0 || current_user.new_friend_requests.count != 0
+        %a.pending.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
           .gravatar
+            %span.glyphicon.glyphicon-bell
+            %span.pending_notification_count.badge= current_user.new_messages.count + current_user.new_friend_requests.count
             = image_tag current_user.gravatar_url
             %span.caret
       - else
-        %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-          .gravatar
-            = image_tag current_user.gravatar_url
-            %span.caret
+        - if current_page?(notifications_friend_requests_path) || current_page?(my_profile_path) || params[:controller] == 'messages'
+          %a.active.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            .gravatar
+              = image_tag current_user.gravatar_url
+              %span.caret
+        - else
+          %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            .gravatar
+              = image_tag current_user.gravatar_url
+              %span.caret
       %ul.dropdown-menu{:role => "menu"}
         - if params[:controller] == 'messages'
           %li
             = link_to messages_path, class: 'active' do
               Private messages
-              %span.badge= new_messages.count
+              %span.notification_count.badge= current_user.new_messages.count
         - else
           %li
             = link_to messages_path do
               Private messages
-              %span.badge= new_messages.count
+              %span.notification_count.badge= current_user.new_messages.count
         - if current_page? notifications_friend_requests_path
           %li
             = link_to notifications_friend_requests_path, class: 'active' do
               Friend requests
-              %span.badge= new_friend_requests.count
+              %span.notification_count.badge= current_user.new_friend_requests.count
         - else
           %li
             = link_to notifications_friend_requests_path do
               Friend requests
-              %span.badge= new_friend_requests.count
+              %span.notification_count.badge= current_user.new_friend_requests.count
         %li.divider
         %li= link_to 'My public profile', profile_path(current_user)
         - if current_page? my_profile_path
